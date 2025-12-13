@@ -1,0 +1,583 @@
+[2025-12-12T23:01:47.645+0000] {processor.py:161} INFO - Started process (PID=7632) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:01:47.647+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:01:47.652+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:01:47.651+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:01:49.154+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:01:49.588+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:01:49.587+0000] {override.py:1829} INFO - Created Permission View: can edit on DAG:mfg_data_quality_monitoring_dag
+[2025-12-12T23:01:49.602+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:01:49.602+0000] {override.py:1829} INFO - Created Permission View: can delete on DAG:mfg_data_quality_monitoring_dag
+[2025-12-12T23:01:49.612+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:01:49.612+0000] {override.py:1829} INFO - Created Permission View: can read on DAG:mfg_data_quality_monitoring_dag
+[2025-12-12T23:01:49.613+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:01:49.613+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:01:49.625+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:01:49.624+0000] {dag.py:3118} INFO - Creating ORM DAG for mfg_data_quality_monitoring_dag
+[2025-12-12T23:01:49.638+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:01:49.637+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-11 04:30:00+00:00, run_after=2025-12-12 04:30:00+00:00
+[2025-12-12T23:01:49.663+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 2.032 seconds
+[2025-12-12T23:02:20.247+0000] {processor.py:161} INFO - Started process (PID=7664) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:02:20.248+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:02:20.250+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:02:20.249+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:02:21.160+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:02:21.186+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:02:21.186+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:02:21.206+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:02:21.206+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-11 04:30:00+00:00, run_after=2025-12-12 04:30:00+00:00
+[2025-12-12T23:02:21.231+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.991 seconds
+[2025-12-12T23:02:51.670+0000] {processor.py:161} INFO - Started process (PID=7686) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:02:51.672+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:02:51.674+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:02:51.674+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:02:52.323+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:02:52.347+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:02:52.346+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:02:52.370+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:02:52.370+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-11 04:30:00+00:00, run_after=2025-12-12 04:30:00+00:00
+[2025-12-12T23:02:52.392+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.730 seconds
+[2025-12-12T23:03:22.893+0000] {processor.py:161} INFO - Started process (PID=7708) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:03:22.894+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:03:22.896+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:03:22.896+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:03:23.432+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:03:23.463+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:03:23.462+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:03:23.622+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:03:23.622+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-11 04:30:00+00:00, run_after=2025-12-12 04:30:00+00:00
+[2025-12-12T23:03:23.646+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.760 seconds
+[2025-12-12T23:04:52.850+0000] {processor.py:161} INFO - Started process (PID=203) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:04:52.852+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:04:52.856+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:04:52.855+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:04:56.143+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:04:56.308+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:04:56.307+0000] {override.py:1829} INFO - Created Permission View: can edit on DAG:mfg_data_quality_monitoring_dag
+[2025-12-12T23:04:56.324+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:04:56.323+0000] {override.py:1829} INFO - Created Permission View: can read on DAG:mfg_data_quality_monitoring_dag
+[2025-12-12T23:04:56.335+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:04:56.334+0000] {override.py:1829} INFO - Created Permission View: can delete on DAG:mfg_data_quality_monitoring_dag
+[2025-12-12T23:04:56.336+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:04:56.335+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:04:56.349+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:04:56.348+0000] {dag.py:3118} INFO - Creating ORM DAG for mfg_data_quality_monitoring_dag
+[2025-12-12T23:04:56.362+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:04:56.362+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-11 04:30:00+00:00, run_after=2025-12-12 04:30:00+00:00
+[2025-12-12T23:04:56.391+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 3.562 seconds
+[2025-12-12T23:05:26.898+0000] {processor.py:161} INFO - Started process (PID=240) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:05:26.899+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:05:26.902+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:05:26.902+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:05:27.518+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:05:27.540+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:05:27.539+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:05:27.558+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:05:27.558+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-11 04:30:00+00:00, run_after=2025-12-12 04:30:00+00:00
+[2025-12-12T23:05:27.580+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.689 seconds
+[2025-12-12T23:05:58.069+0000] {processor.py:161} INFO - Started process (PID=262) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:05:58.071+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:05:58.073+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:05:58.073+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:05:58.803+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:05:58.832+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:05:58.832+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:05:58.855+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:05:58.854+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-11 04:30:00+00:00, run_after=2025-12-12 04:30:00+00:00
+[2025-12-12T23:05:58.878+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.815 seconds
+[2025-12-12T23:06:29.412+0000] {processor.py:161} INFO - Started process (PID=284) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:06:29.413+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:06:29.417+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:06:29.416+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:06:30.374+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:06:30.427+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:06:30.426+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:06:30.467+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:06:30.466+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-11 04:30:00+00:00, run_after=2025-12-12 04:30:00+00:00
+[2025-12-12T23:06:30.500+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 1.101 seconds
+[2025-12-12T23:07:01.090+0000] {processor.py:161} INFO - Started process (PID=306) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:07:01.091+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:07:01.094+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:07:01.094+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:07:01.752+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:07:01.778+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:07:01.777+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:07:01.798+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:07:01.797+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-11 04:30:00+00:00, run_after=2025-12-12 04:30:00+00:00
+[2025-12-12T23:07:01.820+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.737 seconds
+[2025-12-12T23:07:32.372+0000] {processor.py:161} INFO - Started process (PID=328) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:07:32.373+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:07:32.375+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:07:32.375+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:07:33.023+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:07:33.046+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:07:33.045+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:07:33.065+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:07:33.064+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-11 04:30:00+00:00, run_after=2025-12-12 04:30:00+00:00
+[2025-12-12T23:07:33.089+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.724 seconds
+[2025-12-12T23:08:03.621+0000] {processor.py:161} INFO - Started process (PID=350) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:08:03.622+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:08:03.624+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:08:03.624+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:08:04.281+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:08:04.304+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:08:04.303+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:08:04.323+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:08:04.323+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-11 04:30:00+00:00, run_after=2025-12-12 04:30:00+00:00
+[2025-12-12T23:08:04.345+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.732 seconds
+[2025-12-12T23:08:34.883+0000] {processor.py:161} INFO - Started process (PID=409) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:08:34.885+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:08:34.888+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:08:34.887+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:08:35.921+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:08:35.958+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:08:35.957+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:08:35.988+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:08:35.988+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-11 04:30:00+00:00, run_after=2025-12-12 04:30:00+00:00
+[2025-12-12T23:08:36.017+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 1.140 seconds
+[2025-12-12T23:09:06.414+0000] {processor.py:161} INFO - Started process (PID=471) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:09:06.415+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:09:06.418+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:09:06.418+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:09:07.167+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:09:07.194+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:09:07.194+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:09:07.221+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:09:07.220+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-11 04:30:00+00:00, run_after=2025-12-12 04:30:00+00:00
+[2025-12-12T23:09:07.244+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.839 seconds
+[2025-12-12T23:09:37.766+0000] {processor.py:161} INFO - Started process (PID=541) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:09:37.767+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:09:37.769+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:09:37.769+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:09:38.700+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:09:38.736+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:09:38.735+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:09:38.769+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:09:38.769+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-11 04:30:00+00:00, run_after=2025-12-12 04:30:00+00:00
+[2025-12-12T23:09:38.797+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 1.043 seconds
+[2025-12-12T23:10:09.311+0000] {processor.py:161} INFO - Started process (PID=592) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:10:09.313+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:10:09.315+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:10:09.315+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:10:09.919+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:10:09.942+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:10:09.942+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:10:09.961+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:10:09.961+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-11 04:30:00+00:00, run_after=2025-12-12 04:30:00+00:00
+[2025-12-12T23:10:09.982+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.677 seconds
+[2025-12-12T23:10:40.865+0000] {processor.py:161} INFO - Started process (PID=614) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:10:40.867+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:10:40.869+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:10:40.869+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:10:41.556+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:10:41.579+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:10:41.578+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:10:41.599+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:10:41.599+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-11 04:30:00+00:00, run_after=2025-12-12 04:30:00+00:00
+[2025-12-12T23:10:41.622+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.764 seconds
+[2025-12-12T23:11:12.103+0000] {processor.py:161} INFO - Started process (PID=636) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:11:12.104+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:11:12.106+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:11:12.106+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:11:12.817+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:11:12.840+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:11:12.840+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:11:12.858+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:11:12.858+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-11 04:30:00+00:00, run_after=2025-12-12 04:30:00+00:00
+[2025-12-12T23:11:12.878+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.782 seconds
+[2025-12-12T23:11:43.574+0000] {processor.py:161} INFO - Started process (PID=658) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:11:43.576+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:11:43.578+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:11:43.578+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:11:44.218+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:11:44.241+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:11:44.241+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:11:44.262+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:11:44.262+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-11 04:30:00+00:00, run_after=2025-12-12 04:30:00+00:00
+[2025-12-12T23:11:44.284+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.717 seconds
+[2025-12-12T23:12:14.827+0000] {processor.py:161} INFO - Started process (PID=680) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:12:14.828+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:12:14.830+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:12:14.830+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:12:15.463+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:12:15.486+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:12:15.485+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:12:15.504+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:12:15.504+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-11 04:30:00+00:00, run_after=2025-12-12 04:30:00+00:00
+[2025-12-12T23:12:15.527+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.706 seconds
+[2025-12-12T23:12:46.071+0000] {processor.py:161} INFO - Started process (PID=702) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:12:46.073+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:12:46.074+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:12:46.074+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:12:46.736+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:12:46.760+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:12:46.759+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:12:46.783+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:12:46.783+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-11 04:30:00+00:00, run_after=2025-12-12 04:30:00+00:00
+[2025-12-12T23:12:46.807+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.742 seconds
+[2025-12-12T23:13:17.334+0000] {processor.py:161} INFO - Started process (PID=724) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:13:17.335+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:13:17.338+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:13:17.337+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:13:17.957+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:13:17.980+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:13:17.980+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:13:17.999+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:13:17.998+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-11 04:30:00+00:00, run_after=2025-12-12 04:30:00+00:00
+[2025-12-12T23:13:18.019+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.690 seconds
+[2025-12-12T23:13:48.529+0000] {processor.py:161} INFO - Started process (PID=746) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:13:48.530+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:13:48.532+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:13:48.532+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:13:49.163+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:13:49.188+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:13:49.187+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:13:49.207+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:13:49.207+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-11 04:30:00+00:00, run_after=2025-12-12 04:30:00+00:00
+[2025-12-12T23:13:49.229+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.707 seconds
+[2025-12-12T23:14:19.740+0000] {processor.py:161} INFO - Started process (PID=768) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:14:19.742+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:14:19.744+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:14:19.743+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:14:20.394+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:14:20.416+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:14:20.416+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:14:20.435+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:14:20.434+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-11 04:30:00+00:00, run_after=2025-12-12 04:30:00+00:00
+[2025-12-12T23:14:20.459+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.724 seconds
+[2025-12-12T23:14:50.986+0000] {processor.py:161} INFO - Started process (PID=790) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:14:50.988+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:14:50.991+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:14:50.991+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:14:51.624+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:14:51.647+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:14:51.646+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:14:51.667+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:14:51.667+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-11 04:30:00+00:00, run_after=2025-12-12 04:30:00+00:00
+[2025-12-12T23:14:51.687+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.710 seconds
+[2025-12-12T23:15:22.183+0000] {processor.py:161} INFO - Started process (PID=812) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:15:22.184+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:15:22.186+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:15:22.186+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:15:22.834+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:15:22.858+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:15:22.858+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:15:22.877+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:15:22.877+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-11 04:30:00+00:00, run_after=2025-12-12 04:30:00+00:00
+[2025-12-12T23:15:22.898+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.721 seconds
+[2025-12-12T23:15:53.398+0000] {processor.py:161} INFO - Started process (PID=834) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:15:53.399+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:15:53.402+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:15:53.401+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:15:54.124+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:15:54.151+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:15:54.150+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:15:54.181+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:15:54.181+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-11 04:30:00+00:00, run_after=2025-12-12 04:30:00+00:00
+[2025-12-12T23:15:54.203+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.811 seconds
+[2025-12-12T23:16:24.862+0000] {processor.py:161} INFO - Started process (PID=870) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:16:24.864+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:16:24.869+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:16:24.868+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:16:25.807+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:16:25.836+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:16:25.836+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:16:25.864+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:16:25.864+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-11 04:30:00+00:00, run_after=2025-12-12 04:30:00+00:00
+[2025-12-12T23:16:25.894+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 1.044 seconds
+[2025-12-12T23:16:56.485+0000] {processor.py:161} INFO - Started process (PID=944) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:16:56.487+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:16:56.490+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:16:56.489+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:16:57.171+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:16:57.213+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:16:57.212+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:16:57.234+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:16:57.234+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-11 04:30:00+00:00, run_after=2025-12-12 04:30:00+00:00
+[2025-12-12T23:16:57.255+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.779 seconds
+[2025-12-12T23:17:27.865+0000] {processor.py:161} INFO - Started process (PID=1009) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:17:27.867+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:17:27.871+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:17:27.870+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:17:29.007+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:17:29.034+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:17:29.033+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:17:29.057+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:17:29.057+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-11 04:30:00+00:00, run_after=2025-12-12 04:30:00+00:00
+[2025-12-12T23:17:29.081+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 1.232 seconds
+[2025-12-12T23:17:59.457+0000] {processor.py:161} INFO - Started process (PID=1093) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:17:59.459+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:17:59.463+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:17:59.462+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:18:00.630+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:18:00.663+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:18:00.662+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:18:00.717+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 1.269 seconds
+[2025-12-12T23:18:31.008+0000] {processor.py:161} INFO - Started process (PID=1133) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:18:31.010+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:18:31.012+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:18:31.012+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:18:31.683+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:18:31.706+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:18:31.706+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:18:31.749+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.749 seconds
+[2025-12-12T23:19:02.275+0000] {processor.py:161} INFO - Started process (PID=1155) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:19:02.277+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:19:02.280+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:19:02.279+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:19:02.949+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:19:02.972+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:19:02.972+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:19:03.014+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.745 seconds
+[2025-12-12T23:19:33.553+0000] {processor.py:161} INFO - Started process (PID=1177) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:19:33.555+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:19:33.559+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:19:33.558+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:19:34.226+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:19:34.252+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:19:34.251+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:19:34.292+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.753 seconds
+[2025-12-12T23:20:04.883+0000] {processor.py:161} INFO - Started process (PID=1204) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:20:04.884+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:20:04.887+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:20:04.886+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:20:05.588+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:20:05.613+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:20:05.613+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:20:05.653+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.778 seconds
+[2025-12-12T23:20:35.715+0000] {processor.py:161} INFO - Started process (PID=1236) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:20:35.716+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:20:35.718+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:20:35.718+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:20:36.369+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:20:36.397+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:20:36.397+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:20:36.438+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.730 seconds
+[2025-12-12T23:21:06.983+0000] {processor.py:161} INFO - Started process (PID=1258) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:21:06.984+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:21:06.987+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:21:06.986+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:21:07.710+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:21:07.735+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:21:07.734+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:21:07.776+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.801 seconds
+[2025-12-12T23:21:38.433+0000] {processor.py:161} INFO - Started process (PID=1280) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:21:38.435+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:21:38.437+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:21:38.437+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:21:39.242+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:21:39.267+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:21:39.266+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:21:39.308+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.882 seconds
+[2025-12-12T23:22:09.898+0000] {processor.py:161} INFO - Started process (PID=1302) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:22:09.900+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:22:09.902+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:22:09.901+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:22:10.562+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:22:10.586+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:22:10.586+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:22:10.625+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.734 seconds
+[2025-12-12T23:22:41.201+0000] {processor.py:161} INFO - Started process (PID=1324) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:22:41.202+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:22:41.204+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:22:41.204+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:22:41.856+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:22:41.881+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:22:41.880+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:22:41.922+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.728 seconds
+[2025-12-12T23:23:12.432+0000] {processor.py:161} INFO - Started process (PID=1388) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:23:12.434+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:23:12.436+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:23:12.435+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:23:13.099+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:23:13.123+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:23:13.123+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:23:13.164+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.737 seconds
+[2025-12-12T23:23:43.718+0000] {processor.py:161} INFO - Started process (PID=1410) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:23:43.719+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:23:43.722+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:23:43.721+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:23:44.345+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:23:44.369+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:23:44.369+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:23:44.408+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.695 seconds
+[2025-12-12T23:24:14.935+0000] {processor.py:161} INFO - Started process (PID=1432) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:24:14.937+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:24:14.939+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:24:14.939+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:24:15.575+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:24:15.598+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:24:15.597+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:24:15.636+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.707 seconds
+[2025-12-12T23:24:46.122+0000] {processor.py:161} INFO - Started process (PID=1454) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:24:46.123+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:24:46.125+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:24:46.125+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:24:46.795+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:24:46.817+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:24:46.817+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:24:46.855+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.740 seconds
+[2025-12-12T23:25:17.398+0000] {processor.py:161} INFO - Started process (PID=1476) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:25:17.400+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:25:17.402+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:25:17.401+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:25:18.028+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:25:18.051+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:25:18.051+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:25:18.091+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.698 seconds
+[2025-12-12T23:25:48.570+0000] {processor.py:161} INFO - Started process (PID=1498) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:25:48.571+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:25:48.573+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:25:48.573+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:25:49.281+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:25:49.307+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:25:49.306+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:25:49.346+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.782 seconds
+[2025-12-12T23:26:19.836+0000] {processor.py:161} INFO - Started process (PID=1520) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:26:19.839+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:26:19.844+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:26:19.843+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:26:20.479+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:26:20.504+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:26:20.503+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:26:20.541+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.713 seconds
+[2025-12-12T23:26:51.192+0000] {processor.py:161} INFO - Started process (PID=1542) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:26:51.194+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:26:51.197+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:26:51.196+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:26:52.111+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:26:52.146+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:26:52.146+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:26:52.194+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 1.016 seconds
+[2025-12-12T23:27:22.660+0000] {processor.py:161} INFO - Started process (PID=1564) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:27:22.662+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:27:22.664+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:27:22.663+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:27:23.431+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:27:23.455+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:27:23.455+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:27:23.506+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.855 seconds
+[2025-12-12T23:27:54.106+0000] {processor.py:161} INFO - Started process (PID=1586) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:27:54.108+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:27:54.110+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:27:54.109+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:27:54.764+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:27:54.789+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:27:54.789+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:27:54.826+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.726 seconds
+[2025-12-12T23:28:25.404+0000] {processor.py:161} INFO - Started process (PID=1638) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:28:25.405+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:28:25.407+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:28:25.407+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:28:26.008+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:28:26.031+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:28:26.030+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:28:26.050+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:28:26.050+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:28:26.072+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.674 seconds
+[2025-12-12T23:28:56.594+0000] {processor.py:161} INFO - Started process (PID=1660) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:28:56.595+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:28:56.598+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:28:56.597+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:28:57.308+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:28:57.334+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:28:57.334+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:28:57.355+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:28:57.355+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:28:57.379+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.793 seconds
+[2025-12-12T23:29:27.979+0000] {processor.py:161} INFO - Started process (PID=1682) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:29:27.981+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:29:27.984+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:29:27.984+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:29:28.892+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:29:28.926+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:29:28.925+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:29:28.972+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:29:28.972+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:29:29.010+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 1.039 seconds
+[2025-12-12T23:29:59.595+0000] {processor.py:161} INFO - Started process (PID=1704) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:29:59.596+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:29:59.598+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:29:59.598+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:30:00.243+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:30:00.267+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:30:00.266+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:30:00.286+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:30:00.286+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:30:00.309+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.721 seconds
+[2025-12-12T23:30:30.797+0000] {processor.py:161} INFO - Started process (PID=1726) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:30:30.800+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:30:30.802+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:30:30.802+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:30:32.075+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:30:32.114+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:30:32.114+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:30:32.141+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:30:32.141+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:30:32.160+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 1.372 seconds
+[2025-12-12T23:31:02.399+0000] {processor.py:161} INFO - Started process (PID=1748) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:31:02.402+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:31:02.407+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:31:02.406+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:31:03.574+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:31:03.600+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:31:03.600+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:31:03.625+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:31:03.625+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:31:03.654+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 1.263 seconds
+[2025-12-12T23:31:33.900+0000] {processor.py:161} INFO - Started process (PID=1770) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:31:33.902+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:31:33.905+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:31:33.905+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:31:34.684+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:31:34.710+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:31:34.709+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:31:34.731+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:31:34.731+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:31:34.756+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.864 seconds
+[2025-12-12T23:32:05.466+0000] {processor.py:161} INFO - Started process (PID=1792) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:32:05.467+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:32:05.472+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:32:05.471+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:32:06.199+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:32:06.225+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:32:06.225+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:32:06.245+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:32:06.245+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:32:06.268+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.808 seconds
+[2025-12-12T23:32:36.989+0000] {processor.py:161} INFO - Started process (PID=1814) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:32:36.991+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:32:36.993+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:32:36.993+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:32:37.917+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:32:37.948+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:32:37.948+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:32:37.982+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:32:37.982+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:32:38.010+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 1.032 seconds
+[2025-12-12T23:33:08.527+0000] {processor.py:161} INFO - Started process (PID=1836) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:33:08.529+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:33:08.531+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:33:08.531+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:33:09.428+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:33:09.458+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:33:09.457+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:33:09.489+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:33:09.488+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:33:09.517+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.998 seconds
+[2025-12-12T23:33:40.056+0000] {processor.py:161} INFO - Started process (PID=1858) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:33:40.057+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:33:40.060+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:33:40.060+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:33:40.894+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:33:40.924+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:33:40.923+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:33:40.954+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:33:40.954+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:33:40.981+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.933 seconds
+[2025-12-12T23:34:11.689+0000] {processor.py:161} INFO - Started process (PID=1880) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:34:11.690+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:34:11.693+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:34:11.692+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:34:12.535+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:34:12.566+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:34:12.566+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:34:12.592+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:34:12.592+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:34:12.619+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.938 seconds
+[2025-12-12T23:34:43.215+0000] {processor.py:161} INFO - Started process (PID=1902) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:34:43.217+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:34:43.219+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:34:43.219+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:34:44.074+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:34:44.105+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:34:44.104+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:34:44.130+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:34:44.130+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:34:44.157+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.950 seconds
+[2025-12-12T23:35:14.945+0000] {processor.py:161} INFO - Started process (PID=1924) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:35:14.946+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:35:14.949+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:35:14.949+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:35:15.787+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:35:15.818+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:35:15.817+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:35:15.844+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:35:15.844+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:35:15.875+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.938 seconds
+[2025-12-12T23:35:46.441+0000] {processor.py:161} INFO - Started process (PID=1946) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:35:46.442+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:35:46.445+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:35:46.445+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:35:47.276+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:35:47.306+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:35:47.306+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:35:47.334+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:35:47.334+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:35:47.362+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.932 seconds
+[2025-12-12T23:36:17.959+0000] {processor.py:161} INFO - Started process (PID=1973) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:36:17.960+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:36:17.963+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:36:17.962+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:36:18.848+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:36:18.880+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:36:18.879+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:36:18.910+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:36:18.909+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:36:18.938+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.989 seconds
+[2025-12-12T23:36:49.505+0000] {processor.py:161} INFO - Started process (PID=2000) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:36:49.507+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:36:49.510+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:36:49.509+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:36:50.415+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:36:50.449+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:36:50.448+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:36:50.476+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:36:50.475+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:36:50.503+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 1.007 seconds
+[2025-12-12T23:37:21.200+0000] {processor.py:161} INFO - Started process (PID=2027) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:37:21.202+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:37:21.205+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:37:21.204+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:37:21.945+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:37:21.970+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:37:21.969+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:37:21.993+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:37:21.992+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:37:22.019+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.824 seconds
+[2025-12-12T23:37:52.716+0000] {processor.py:161} INFO - Started process (PID=2049) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:37:52.717+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:37:52.719+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:37:52.718+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:37:53.433+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:37:53.459+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:37:53.459+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:37:53.482+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:37:53.481+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:37:53.506+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.796 seconds
+[2025-12-12T23:38:24.157+0000] {processor.py:161} INFO - Started process (PID=2071) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:38:24.158+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:38:24.161+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:38:24.161+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:38:24.863+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:38:24.888+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:38:24.888+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:38:24.911+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:38:24.911+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:38:24.933+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.785 seconds
+[2025-12-12T23:38:55.635+0000] {processor.py:161} INFO - Started process (PID=2093) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:38:55.636+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:38:55.640+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:38:55.639+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:38:56.345+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:38:56.370+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:38:56.369+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:38:56.393+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:38:56.393+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:38:56.415+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.786 seconds
+[2025-12-12T23:39:26.916+0000] {processor.py:161} INFO - Started process (PID=2115) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:39:26.917+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:39:26.919+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:39:26.919+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:39:27.625+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:39:27.649+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:39:27.649+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:39:27.670+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:39:27.670+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:39:27.696+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.787 seconds
+[2025-12-12T23:39:58.272+0000] {processor.py:161} INFO - Started process (PID=2137) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:39:58.273+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:39:58.275+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:39:58.275+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:39:59.001+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:39:59.026+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:39:59.025+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:39:59.049+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:39:59.049+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:39:59.071+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.806 seconds
+[2025-12-12T23:40:29.748+0000] {processor.py:161} INFO - Started process (PID=2159) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:40:29.750+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:40:29.752+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:40:29.751+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:40:30.441+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:40:30.476+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:40:30.476+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:40:30.499+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:40:30.498+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:40:30.521+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.782 seconds
+[2025-12-12T23:41:01.089+0000] {processor.py:161} INFO - Started process (PID=2181) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:41:01.090+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:41:01.092+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:41:01.092+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:41:01.837+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:41:01.862+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:41:01.862+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:41:01.882+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:41:01.882+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:41:01.907+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.827 seconds
+[2025-12-12T23:41:32.438+0000] {processor.py:161} INFO - Started process (PID=2203) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:41:32.440+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:41:32.443+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:41:32.442+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:41:33.142+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:41:33.167+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:41:33.167+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:41:33.188+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:41:33.187+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:41:33.214+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.783 seconds
+[2025-12-12T23:42:03.730+0000] {processor.py:161} INFO - Started process (PID=2225) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:42:03.731+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:42:03.733+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:42:03.733+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:42:04.447+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:42:04.472+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:42:04.472+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:42:04.494+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:42:04.494+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:42:04.518+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.796 seconds
+[2025-12-12T23:42:35.031+0000] {processor.py:161} INFO - Started process (PID=2247) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:42:35.033+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:42:35.035+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:42:35.035+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:42:35.866+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:42:35.897+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:42:35.896+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:42:35.924+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:42:35.923+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:42:35.956+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.933 seconds
+[2025-12-12T23:43:06.476+0000] {processor.py:161} INFO - Started process (PID=2269) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:43:06.478+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:43:06.480+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:43:06.480+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:43:07.165+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:43:07.190+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:43:07.190+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:43:07.212+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:43:07.212+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:43:07.236+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.767 seconds
+[2025-12-12T23:43:37.750+0000] {processor.py:161} INFO - Started process (PID=2291) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:43:37.751+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:43:37.753+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:43:37.753+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:43:38.605+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:43:38.637+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:43:38.636+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:43:38.665+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:43:38.665+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:43:38.692+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.946 seconds
+[2025-12-12T23:44:09.216+0000] {processor.py:161} INFO - Started process (PID=2313) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:44:09.217+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:44:09.219+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:44:09.219+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:44:09.990+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:44:10.015+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:44:10.014+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:44:10.037+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:44:10.037+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:44:10.059+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.851 seconds
+[2025-12-12T23:44:40.676+0000] {processor.py:161} INFO - Started process (PID=2335) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:44:40.679+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:44:40.683+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:44:40.682+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:44:41.460+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:44:41.486+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:44:41.486+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:44:41.507+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:44:41.507+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:44:41.532+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.874 seconds
+[2025-12-12T23:45:12.215+0000] {processor.py:161} INFO - Started process (PID=2357) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:45:12.217+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:45:12.219+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:45:12.219+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:45:13.082+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:45:13.225+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:45:13.225+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:45:13.279+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:45:13.279+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:45:13.302+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 1.094 seconds
+[2025-12-12T23:45:43.796+0000] {processor.py:161} INFO - Started process (PID=2379) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:45:43.798+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:45:43.801+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:45:43.800+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:45:44.503+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:45:44.527+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:45:44.527+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:45:44.551+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:45:44.551+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:45:44.574+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.786 seconds
+[2025-12-12T23:46:15.260+0000] {processor.py:161} INFO - Started process (PID=2401) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:46:15.262+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:46:15.265+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:46:15.265+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:46:15.953+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:46:15.978+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:46:15.977+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:46:16.001+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:46:16.001+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:46:16.023+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.770 seconds
+[2025-12-12T23:46:46.751+0000] {processor.py:161} INFO - Started process (PID=2423) to work on /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:46:46.752+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/mfg_data_quality_monitoring_dag.py for tasks to queue
+[2025-12-12T23:46:46.755+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:46:46.754+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:46:47.458+0000] {processor.py:840} INFO - DAG(s) 'mfg_data_quality_monitoring_dag' retrieved from /opt/airflow/dags/mfg_data_quality_monitoring_dag.py
+[2025-12-12T23:46:47.485+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:46:47.485+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-12T23:46:47.507+0000] {logging_mixin.py:188} INFO - [2025-12-12T23:46:47.507+0000] {dag.py:3954} INFO - Setting next_dagrun for mfg_data_quality_monitoring_dag to 2025-12-12 04:30:00+00:00, run_after=2025-12-13 04:30:00+00:00
+[2025-12-12T23:46:47.534+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/mfg_data_quality_monitoring_dag.py took 0.791 seconds
