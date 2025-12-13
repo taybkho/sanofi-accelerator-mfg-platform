@@ -1,10 +1,14 @@
 """
 mfg_data_quality_monitoring_dag.py
 
+Step 2 upgrade:
+- Introduces severity levels (ERROR vs WARN)
+- WARN-level checks do not fail the DAG
+- Audit payload separates errors and warnings
+- Keeps all core checks: rowcounts, duplicates, freshness, + audit logging
+
 Goal:
-- Run daily data quality checks on key manufacturing models/tables.
-- Log results into Snowflake audit table (RAW.DATA_QUALITY_AUDIT).
-- Fail fast on true DQ issues, while still writing audit results even on failures.
+- Daily data quality checks + write results to RAW.DATA_QUALITY_AUDIT
 """
 
 from __future__ import annotations
@@ -21,9 +25,15 @@ from airflow.utils.trigger_rule import TriggerRule
 
 
 # -----------------------------
-# Snowflake helpers (prod-style)
+# Severity model
 # -----------------------------
+SEVERITY_ERROR = "ERROR"
+SEVERITY_WARN = "WARN"
 
+
+# -----------------------------
+# Snowflake helpers
+# -----------------------------
 def _sf_connect() -> snowflake.connector.SnowflakeConnection:
     required = [
         "SNOWFLAKE_ACCOUNT",
@@ -51,23 +61,25 @@ def _sf_connect() -> snowflake.connector.SnowflakeConnection:
     return conn
 
 
-def _fetch_one(cursor, query: str) -> tuple:
-    cursor.execute(query)
-    return cursor.fetchone()
-
-
-def _execute(cursor, query: str, params: tuple | None = None) -> None:
+def _execute(cur, query: str, params: tuple | None = None) -> None:
     if params:
-        cursor.execute(query, params)
+        cur.execute(query, params)
     else:
-        cursor.execute(query)
+        cur.execute(query)
+
+
+def _fetch_one(cur, query: str) -> tuple:
+    cur.execute(query)
+    return cur.fetchone()
 
 
 # -----------------------------
-# DQ checks
+# ERROR-level checks
 # -----------------------------
-
 def dq_check_rowcounts_raw_vs_core(**context) -> None:
+    """
+    ERROR: Table-level RAW vs CORE reconciliation (strict).
+    """
     pairs = [
         ("RAW.MATERIALS", "ANALYTICS_ANALYTICS.CORE_MATERIALS"),
         ("RAW.BATCHES", "ANALYTICS_ANALYTICS.CORE_BATCHES"),
@@ -77,13 +89,16 @@ def dq_check_rowcounts_raw_vs_core(**context) -> None:
     conn = _sf_connect()
     cur = conn.cursor()
     try:
-        diffs = []
+        errors = []
         for raw_tbl, core_tbl in pairs:
             raw_cnt = _fetch_one(cur, f"SELECT COUNT(*) FROM {raw_tbl}")[0]
             core_cnt = _fetch_one(cur, f"SELECT COUNT(*) FROM {core_tbl}")[0]
+
             if raw_cnt != core_cnt:
-                diffs.append(
+                errors.append(
                     {
+                        "check": "table_rowcount_mismatch",
+                        "severity": SEVERITY_ERROR,
                         "raw_table": raw_tbl,
                         "core_table": core_tbl,
                         "raw_count": int(raw_cnt),
@@ -92,19 +107,72 @@ def dq_check_rowcounts_raw_vs_core(**context) -> None:
                     }
                 )
 
-        context["ti"].xcom_push(key="rowcount_diffs", value=diffs)
+        context["ti"].xcom_push(key="rowcount_errors", value=errors)
 
-        if diffs:
-            raise AirflowFailException(f"Rowcount mismatch RAW vs CORE: {diffs}")
+        if errors:
+            raise AirflowFailException(f"Table-level rowcount mismatch: {errors}")
 
     finally:
-        try:
-            cur.close()
-        finally:
-            conn.close()
+        cur.close()
+        conn.close()
+
+
+def dq_check_rowcounts_by_date(**context) -> None:
+    """
+    ERROR: Partition-aware reconciliation by ACTUAL_START_DATE (NULL excluded).
+    """
+    conn = _sf_connect()
+    cur = conn.cursor()
+    try:
+        cur.execute(
+            """
+            SELECT
+              r.ACTUAL_START_DATE AS business_date,
+              COUNT(*) AS raw_cnt,
+              COALESCE(c.core_cnt, 0) AS core_cnt,
+              COUNT(*) - COALESCE(c.core_cnt, 0) AS diff
+            FROM RAW.PRODUCTION_ORDERS r
+            LEFT JOIN (
+              SELECT ACTUAL_START_DATE AS business_date, COUNT(*) AS core_cnt
+              FROM ANALYTICS_ANALYTICS.FCT_PRODUCTION_ORDERS
+              WHERE ACTUAL_START_DATE IS NOT NULL
+              GROUP BY ACTUAL_START_DATE
+            ) c
+              ON r.ACTUAL_START_DATE = c.business_date
+            WHERE r.ACTUAL_START_DATE IS NOT NULL
+            GROUP BY r.ACTUAL_START_DATE, c.core_cnt
+            HAVING COUNT(*) != COALESCE(c.core_cnt, 0)
+            ORDER BY r.ACTUAL_START_DATE
+            """
+        )
+
+        rows = cur.fetchall()
+        errors = [
+            {
+                "check": "partition_rowcount_mismatch",
+                "severity": SEVERITY_ERROR,
+                "business_date": str(r[0]),
+                "raw_count": int(r[1]),
+                "core_count": int(r[2]),
+                "diff": int(r[3]),
+            }
+            for r in rows
+        ]
+
+        context["ti"].xcom_push(key="partition_rowcount_errors", value=errors)
+
+        if errors:
+            raise AirflowFailException(f"Partition rowcount mismatch: {errors}")
+
+    finally:
+        cur.close()
+        conn.close()
 
 
 def dq_check_duplicates_batches(**context) -> None:
+    """
+    ERROR: Duplicate + NULL key checks on CORE_BATCHES.BATCH_ID
+    """
     tbl = "ANALYTICS_ANALYTICS.CORE_BATCHES"
     key = "BATCH_ID"
 
@@ -124,30 +192,31 @@ def dq_check_duplicates_batches(**context) -> None:
             """,
         )[0]
 
-        null_key_count = _fetch_one(
-            cur,
-            f"SELECT COUNT(*) FROM {tbl} WHERE {key} IS NULL",
-        )[0]
+        null_key_count = _fetch_one(cur, f"SELECT COUNT(*) FROM {tbl} WHERE {key} IS NULL")[0]
 
         result = {
+            "check": "duplicates_core_batches",
+            "severity": SEVERITY_ERROR,
             "table": tbl,
             "key": key,
             "duplicate_key_count": int(dup_key_count),
             "null_key_count": int(null_key_count),
         }
+
         context["ti"].xcom_push(key="dupe_check", value=result)
 
         if dup_key_count > 0 or null_key_count > 0:
-            raise AirflowFailException(f"Duplicate/null key check failed: {result}")
+            raise AirflowFailException(f"Duplicate/NULL key check failed: {result}")
 
     finally:
-        try:
-            cur.close()
-        finally:
-            conn.close()
+        cur.close()
+        conn.close()
 
 
 def dq_check_freshness_kpis(**context) -> None:
+    """
+    ERROR: KPI table must be fresh (max date within last 1 day).
+    """
     tbl = "ANALYTICS_ANALYTICS.MFG_PLANT_DAILY_KPIS"
 
     conn = _sf_connect()
@@ -164,6 +233,8 @@ def dq_check_freshness_kpis(**context) -> None:
         )
 
         result = {
+            "check": "freshness_kpis",
+            "severity": SEVERITY_ERROR,
             "table": tbl,
             "max_calendar_date": str(max_date) if max_date else None,
             "days_lag": int(days_lag) if days_lag is not None else None,
@@ -171,57 +242,84 @@ def dq_check_freshness_kpis(**context) -> None:
         context["ti"].xcom_push(key="freshness_check", value=result)
 
         if max_date is None:
-            raise AirflowFailException(f"Freshness check failed: {tbl} is empty")
+            raise AirflowFailException(f"Freshness failed: {tbl} is empty")
 
         if days_lag is None or days_lag > 1:
-            raise AirflowFailException(f"Freshness check failed: {result}")
+            raise AirflowFailException(f"Freshness failed: {result}")
 
     finally:
-        try:
-            cur.close()
-        finally:
-            conn.close()
+        cur.close()
+        conn.close()
 
 
+# -----------------------------
+# WARN-level checks (do not fail)
+# -----------------------------
+def dq_check_null_actual_start_date(**context) -> None:
+    """
+    WARN: Missing ACTUAL_START_DATE in RAW.PRODUCTION_ORDERS.
+    We log it but do not block the pipeline.
+    """
+    conn = _sf_connect()
+    cur = conn.cursor()
+    try:
+        null_count = _fetch_one(
+            cur,
+            """
+            SELECT COUNT(*)
+            FROM RAW.PRODUCTION_ORDERS
+            WHERE ACTUAL_START_DATE IS NULL
+            """,
+        )[0]
+
+        warn = {
+            "check": "null_actual_start_date",
+            "severity": SEVERITY_WARN,
+            "null_count": int(null_count),
+        }
+
+        context["ti"].xcom_push(key="warnings", value=[warn] if null_count > 0 else [])
+
+    finally:
+        cur.close()
+        conn.close()
+
+
+# -----------------------------
+# Audit logging (always runs)
+# -----------------------------
 def dq_log_results(**context) -> None:
-    """
-    Log DQ results into RAW.DATA_QUALITY_AUDIT.
-
-    Fixes:
-    - Handles existing table created with different schema/casing.
-    - Uses quoted identifiers and ALTER TABLE migrations.
-    """
     ti = context["ti"]
 
-    rowcount_diffs = ti.xcom_pull(
-        key="rowcount_diffs",
-        task_ids="dq_check_rowcounts_raw_vs_core",
-    )
-    dupe_check = ti.xcom_pull(
-        key="dupe_check",
-        task_ids="dq_check_duplicates_batches",
-    )
-    freshness_check = ti.xcom_pull(
-        key="freshness_check",
-        task_ids="dq_check_freshness_kpis",
-    )
+    # Collect ERROR details from upstream tasks (they may be empty if PASS)
+    errors = []
+    errors += ti.xcom_pull(key="rowcount_errors", task_ids="dq_check_rowcounts_raw_vs_core") or []
+    errors += ti.xcom_pull(key="partition_rowcount_errors", task_ids="dq_check_rowcounts_by_date") or []
 
-    dag_run_id = context["dag_run"].run_id if context.get("dag_run") else None
-    dag_run_id = dag_run_id or "unknown"
+    # Add structured ERROR results for context (even if they passed)
+    dupe_check = ti.xcom_pull(key="dupe_check", task_ids="dq_check_duplicates_batches")
+    freshness_check = ti.xcom_pull(key="freshness_check", task_ids="dq_check_freshness_kpis")
+
+    # WARNs
+    warnings = ti.xcom_pull(key="warnings", task_ids="dq_check_null_actual_start_date") or []
+
+    dag_run_id = context["dag_run"].run_id if context.get("dag_run") else "unknown"
 
     payload = {
         "run_ts_utc": datetime.utcnow().isoformat(),
         "dag_run_id": dag_run_id,
-        "rowcount_diffs": rowcount_diffs or [],
-        "dupe_check": dupe_check,
-        "freshness_check": freshness_check,
+        "severity_summary": {"error_count": len(errors), "warn_count": len(warnings)},
+        "errors": errors,
+        "warnings": warnings,
+        "check_outputs": {
+            "dupe_check": dupe_check,
+            "freshness_check": freshness_check,
+        },
     }
-    payload_json = json.dumps(payload)
 
     conn = _sf_connect()
     cur = conn.cursor()
     try:
-        # Create if missing (quoted identifiers = consistent schema)
         _execute(
             cur,
             """
@@ -233,65 +331,53 @@ def dq_log_results(**context) -> None:
             """
         )
 
-        # Migrate if table existed with different schema (safe, idempotent)
-        _execute(cur, 'ALTER TABLE RAW.DATA_QUALITY_AUDIT ADD COLUMN IF NOT EXISTS "RUN_TS" TIMESTAMP_LTZ')
-        _execute(cur, 'ALTER TABLE RAW.DATA_QUALITY_AUDIT ADD COLUMN IF NOT EXISTS "DAG_RUN_ID" STRING')
-        _execute(cur, 'ALTER TABLE RAW.DATA_QUALITY_AUDIT ADD COLUMN IF NOT EXISTS "RESULTS" VARIANT')
-
-        # Insert using quoted identifiers so casing always matches
         _execute(
             cur,
             """
             INSERT INTO RAW.DATA_QUALITY_AUDIT ("RUN_TS", "DAG_RUN_ID", "RESULTS")
             SELECT CURRENT_TIMESTAMP(), %s, PARSE_JSON(%s)
             """,
-            params=(dag_run_id, payload_json),
+            params=(dag_run_id, json.dumps(payload)),
         )
-
 
         conn.commit()
 
-    except Exception as e:
-        try:
-            conn.rollback()
-        except Exception:
-            pass
-        raise AirflowFailException(
-            f"Failed to write DQ audit log. dag_run_id={dag_run_id}, "
-            f"payload_bytes={len(payload_json)}. Error={e}"
-        )
-
     finally:
-        try:
-            cur.close()
-        finally:
-            conn.close()
+        cur.close()
+        conn.close()
 
 
 # -----------------------------
 # DAG definition
 # -----------------------------
-
-default_args = {
-    "owner": "data-platform",
-    "retries": 1,
-    "retry_delay": timedelta(minutes=3),
-}
+default_args = {"owner": "data-platform", "retries": 1, "retry_delay": timedelta(minutes=3)}
 
 with DAG(
     dag_id="mfg_data_quality_monitoring_dag",
     default_args=default_args,
-    description="Daily data quality monitoring checks (counts, duplicates, freshness) + audit logging.",
     start_date=datetime(2025, 1, 1),
     schedule="0 6 * * *",
     catchup=False,
     tags=["mfg", "dq", "monitoring"],
+    description="Production-grade DQ monitoring with severity levels",
 ) as dag:
 
     t_rowcounts = PythonOperator(
         task_id="dq_check_rowcounts_raw_vs_core",
         python_callable=dq_check_rowcounts_raw_vs_core,
         execution_timeout=timedelta(minutes=10),
+    )
+
+    t_rowcounts_by_date = PythonOperator(
+        task_id="dq_check_rowcounts_by_date",
+        python_callable=dq_check_rowcounts_by_date,
+        execution_timeout=timedelta(minutes=10),
+    )
+
+    t_null_dates = PythonOperator(
+        task_id="dq_check_null_actual_start_date",
+        python_callable=dq_check_null_actual_start_date,
+        execution_timeout=timedelta(minutes=5),
     )
 
     t_dupes = PythonOperator(
@@ -313,4 +399,5 @@ with DAG(
         execution_timeout=timedelta(minutes=10),
     )
 
-    t_rowcounts >> t_dupes >> t_fresh >> t_log
+    # Flow (readable + deterministic)
+    t_rowcounts >> t_rowcounts_by_date >> t_null_dates >> t_dupes >> t_fresh >> t_log

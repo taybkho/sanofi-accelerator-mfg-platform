@@ -1,0 +1,40 @@
+[2025-12-13T17:01:54.707+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-12-13T17:01:54.758+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: mfg_data_quality_monitoring_dag.dq_check_rowcounts_by_date manual__2025-12-13T17:01:45.702551+00:00 [queued]>
+[2025-12-13T17:01:54.771+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: mfg_data_quality_monitoring_dag.dq_check_rowcounts_by_date manual__2025-12-13T17:01:45.702551+00:00 [queued]>
+[2025-12-13T17:01:54.772+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2025-12-13T17:01:54.792+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): dq_check_rowcounts_by_date> on 2025-12-13 17:01:45.702551+00:00
+[2025-12-13T17:01:54.804+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=7839) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-12-13T17:01:54.806+0000] {standard_task_runner.py:63} INFO - Started process 7846 to run task
+[2025-12-13T17:01:54.804+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'mfg_data_quality_monitoring_dag', 'dq_check_rowcounts_by_date', 'manual__2025-12-13T17:01:45.702551+00:00', '--job-id', '37', '--raw', '--subdir', 'DAGS_FOLDER/mfg_data_quality_monitoring_dag.py', '--cfg-path', '/tmp/tmpb2br_vz4']
+[2025-12-13T17:01:54.808+0000] {standard_task_runner.py:91} INFO - Job 37: Subtask dq_check_rowcounts_by_date
+[2025-12-13T17:01:54.879+0000] {task_command.py:426} INFO - Running <TaskInstance: mfg_data_quality_monitoring_dag.dq_check_rowcounts_by_date manual__2025-12-13T17:01:45.702551+00:00 [running]> on host 2836efb3fb45
+[2025-12-13T17:01:54.998+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-platform' AIRFLOW_CTX_DAG_ID='mfg_data_quality_monitoring_dag' AIRFLOW_CTX_TASK_ID='dq_check_rowcounts_by_date' AIRFLOW_CTX_EXECUTION_DATE='2025-12-13T17:01:45.702551+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-12-13T17:01:45.702551+00:00'
+[2025-12-13T17:01:55.001+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-12-13T17:01:55.022+0000] {connection.py:521} INFO - Snowflake Connector for Python Version: 3.18.0, Python Version: 3.12.2, Platform: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.36
+[2025-12-13T17:01:55.023+0000] {connection.py:1464} INFO - Connecting to GLOBAL Snowflake domain
+[2025-12-13T17:01:57.944+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-12-13T17:01:57.945+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 460, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/mfg_data_quality_monitoring_dag.py", line 157, in dq_check_rowcounts_by_date
+    raise AirflowFailException(
+airflow.exceptions.AirflowFailException: Partition-level rowcount mismatch detected: [{'business_date': 'None', 'raw_count': 2120, 'core_count': 0, 'diff': 2120}]
+[2025-12-13T17:01:57.957+0000] {taskinstance.py:1205} INFO - Immediate failure requested. Marking task as FAILED. dag_id=mfg_data_quality_monitoring_dag, task_id=dq_check_rowcounts_by_date, execution_date=20251213T170145, start_date=20251213T170154, end_date=20251213T170157
+[2025-12-13T17:01:57.972+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 37 for task dq_check_rowcounts_by_date (Partition-level rowcount mismatch detected: [{'business_date': 'None', 'raw_count': 2120, 'core_count': 0, 'diff': 2120}]; 7846)
+[2025-12-13T17:01:58.002+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-12-13T17:01:58.022+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-13T17:01:58.028+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
