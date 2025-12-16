@@ -1,44 +1,16 @@
--- core_materials.sql
--- Purpose:
---  - Create a cleaned, enriched material dimension
---  - Add simple derived attributes (e.g. is_active flag, age)
-
 with base as (
-
-    -- Use the staging view as the single source of truth for materials
-    select
-        material_id,
-        material_name,
-        material_type,
-        unit_of_measure,
-        material_status,
-        created_at
+    select *
     from {{ ref('stg_materials') }}
-
 ),
 
-enriched as (
-
-    select
-        material_id,
-        material_name,
-        material_type,
-        unit_of_measure,
-        material_status,
-
-        created_at,
-
-        -- Age of the material definition in days
-        datediff('day', created_at, current_date()) as material_age_days,
-
-        -- Simple flag to say if the material is considered active
-        case
-            when upper(material_status) = 'ACTIVE' then 1
-            else 0
-        end as is_active_material
+deduped as (
+    select *
     from base
-
+    qualify row_number() over (
+        partition by material_id, load_run_id
+        order by loaded_at desc
+    ) = 1
 )
 
-select * from enriched
-
+select *
+from deduped

@@ -1,0 +1,108 @@
+[2025-12-15T14:39:04.233+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-12-15T14:39:04.271+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: mfg_raw_ingestion_dag.ingest_raw_to_snowflake manual__2025-12-15T14:28:06.606588+00:00 [queued]>
+[2025-12-15T14:39:04.281+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: mfg_raw_ingestion_dag.ingest_raw_to_snowflake manual__2025-12-15T14:28:06.606588+00:00 [queued]>
+[2025-12-15T14:39:04.282+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 3
+[2025-12-15T14:39:04.295+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): ingest_raw_to_snowflake> on 2025-12-15 14:28:06.606588+00:00
+[2025-12-15T14:39:04.301+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'mfg_raw_ingestion_dag', 'ingest_raw_to_snowflake', 'manual__2025-12-15T14:28:06.606588+00:00', '--job-id', '30', '--raw', '--subdir', 'DAGS_FOLDER/mfg_raw_ingestion_dag.py', '--cfg-path', '/tmp/tmp1ngm9srn']
+[2025-12-15T14:39:04.304+0000] {standard_task_runner.py:91} INFO - Job 30: Subtask ingest_raw_to_snowflake
+[2025-12-15T14:39:04.304+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=3694) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-12-15T14:39:04.305+0000] {standard_task_runner.py:63} INFO - Started process 3695 to run task
+[2025-12-15T14:39:04.351+0000] {task_command.py:426} INFO - Running <TaskInstance: mfg_raw_ingestion_dag.ingest_raw_to_snowflake manual__2025-12-15T14:28:06.606588+00:00 [running]> on host 3799fda194bc
+[2025-12-15T14:39:04.432+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-engineering' AIRFLOW_CTX_DAG_ID='mfg_raw_ingestion_dag' AIRFLOW_CTX_TASK_ID='ingest_raw_to_snowflake' AIRFLOW_CTX_EXECUTION_DATE='2025-12-15T14:28:06.606588+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-12-15T14:28:06.606588+00:00'
+[2025-12-15T14:39:04.433+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-12-15T14:39:04.450+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-12-15T14:39:04.451+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'set -euo pipefail; python /opt/***/ingestion/python/load_raw_to_snowflake.py']
+[2025-12-15T14:39:04.459+0000] {subprocess.py:86} INFO - Output:
+[2025-12-15T14:39:06.138+0000] {subprocess.py:93} INFO - [INFO] 2025-12-15 14:39:06 - Loaded environment variables from /opt/***/.env
+[2025-12-15T14:39:06.143+0000] {subprocess.py:93} INFO - [INFO] 2025-12-15 14:39:06 - Starting RAW load. load_run_id=eea03334-38f6-4d29-8603-73d4656f4c07
+[2025-12-15T14:39:06.144+0000] {subprocess.py:93} INFO - [INFO] 2025-12-15 14:39:06 - Using data directory: /opt/***/data/raw/source_system
+[2025-12-15T14:39:06.145+0000] {subprocess.py:93} INFO - [INFO] 2025-12-15 14:39:06 - Connecting to Snowflake...
+[2025-12-15T14:39:07.307+0000] {subprocess.py:93} INFO - [INFO] 2025-12-15 14:39:07 - Ensuring RAW tables exist (run-aware append-only)...
+[2025-12-15T14:39:08.141+0000] {subprocess.py:93} INFO - [INFO] 2025-12-15 14:39:08 - RAW tables are ready.
+[2025-12-15T14:39:08.142+0000] {subprocess.py:93} INFO - [INFO] 2025-12-15 14:39:08 - Ensuring RAW_LOAD_AUDIT table exists...
+[2025-12-15T14:39:08.385+0000] {subprocess.py:93} INFO - [INFO] 2025-12-15 14:39:08 - RAW_LOAD_AUDIT is ready.
+[2025-12-15T14:39:08.399+0000] {subprocess.py:93} INFO - [INFO] 2025-12-15 14:39:08 - Read 500 rows from materials.csv
+[2025-12-15T14:39:08.427+0000] {subprocess.py:93} INFO - [INFO] 2025-12-15 14:39:08 - Read 10,000 rows from batches.csv
+[2025-12-15T14:39:08.460+0000] {subprocess.py:93} INFO - [INFO] 2025-12-15 14:39:08 - Read 10,000 rows from production_orders.csv
+[2025-12-15T14:39:12.545+0000] {subprocess.py:93} INFO - [ERROR] 2025-12-15 14:39:12 - [MATERIALS] Load failed: 000904 (42000): SQL compilation error: error line 2 at position 11
+[2025-12-15T14:39:12.545+0000] {subprocess.py:93} INFO - invalid identifier 'LOAD_RUN_ID'
+[2025-12-15T14:39:12.546+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-12-15T14:39:12.546+0000] {subprocess.py:93} INFO -   File "/opt/***/ingestion/python/load_raw_to_snowflake.py", line 272, in load_df
+[2025-12-15T14:39:12.547+0000] {subprocess.py:93} INFO -     _audit(cur, load_run_id, source_name, table_name, rows_read, int(rows_loaded), "SUCCESS", None)
+[2025-12-15T14:39:12.547+0000] {subprocess.py:93} INFO -   File "/opt/***/ingestion/python/load_raw_to_snowflake.py", line 220, in _audit
+[2025-12-15T14:39:12.548+0000] {subprocess.py:93} INFO -     cur.execute(
+[2025-12-15T14:39:12.548+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/snowflake/connector/cursor.py", line 1134, in execute
+[2025-12-15T14:39:12.548+0000] {subprocess.py:93} INFO -     Error.errorhandler_wrapper(self.connection, self, error_class, errvalue)
+[2025-12-15T14:39:12.549+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 286, in errorhandler_wrapper
+[2025-12-15T14:39:12.549+0000] {subprocess.py:93} INFO -     handed_over = Error.hand_to_other_handler(
+[2025-12-15T14:39:12.549+0000] {subprocess.py:93} INFO -                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-12-15T14:39:12.550+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 341, in hand_to_other_handler
+[2025-12-15T14:39:12.550+0000] {subprocess.py:93} INFO -     cursor.errorhandler(connection, cursor, error_class, error_value)
+[2025-12-15T14:39:12.550+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 217, in default_errorhandler
+[2025-12-15T14:39:12.551+0000] {subprocess.py:93} INFO -     raise error_class(
+[2025-12-15T14:39:12.551+0000] {subprocess.py:93} INFO - snowflake.connector.errors.ProgrammingError: 000904 (42000): SQL compilation error: error line 2 at position 11
+[2025-12-15T14:39:12.551+0000] {subprocess.py:93} INFO - invalid identifier 'LOAD_RUN_ID'
+[2025-12-15T14:39:12.781+0000] {subprocess.py:93} INFO - [ERROR] 2025-12-15 14:39:12 - [MATERIALS] Also failed to write audit row: 000904 (42000): SQL compilation error: error line 2 at position 11
+[2025-12-15T14:39:12.782+0000] {subprocess.py:93} INFO - invalid identifier 'LOAD_RUN_ID'
+[2025-12-15T14:39:16.694+0000] {subprocess.py:93} INFO - [ERROR] 2025-12-15 14:39:16 - [BATCHES] Load failed: 000904 (42000): SQL compilation error: error line 2 at position 11
+[2025-12-15T14:39:16.694+0000] {subprocess.py:93} INFO - invalid identifier 'LOAD_RUN_ID'
+[2025-12-15T14:39:16.695+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-12-15T14:39:16.695+0000] {subprocess.py:93} INFO -   File "/opt/***/ingestion/python/load_raw_to_snowflake.py", line 272, in load_df
+[2025-12-15T14:39:16.696+0000] {subprocess.py:93} INFO -     _audit(cur, load_run_id, source_name, table_name, rows_read, int(rows_loaded), "SUCCESS", None)
+[2025-12-15T14:39:16.696+0000] {subprocess.py:93} INFO -   File "/opt/***/ingestion/python/load_raw_to_snowflake.py", line 220, in _audit
+[2025-12-15T14:39:16.697+0000] {subprocess.py:93} INFO -     cur.execute(
+[2025-12-15T14:39:16.697+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/snowflake/connector/cursor.py", line 1134, in execute
+[2025-12-15T14:39:16.697+0000] {subprocess.py:93} INFO -     Error.errorhandler_wrapper(self.connection, self, error_class, errvalue)
+[2025-12-15T14:39:16.698+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 286, in errorhandler_wrapper
+[2025-12-15T14:39:16.698+0000] {subprocess.py:93} INFO -     handed_over = Error.hand_to_other_handler(
+[2025-12-15T14:39:16.699+0000] {subprocess.py:93} INFO -                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-12-15T14:39:16.699+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 341, in hand_to_other_handler
+[2025-12-15T14:39:16.700+0000] {subprocess.py:93} INFO -     cursor.errorhandler(connection, cursor, error_class, error_value)
+[2025-12-15T14:39:16.700+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 217, in default_errorhandler
+[2025-12-15T14:39:16.701+0000] {subprocess.py:93} INFO -     raise error_class(
+[2025-12-15T14:39:16.701+0000] {subprocess.py:93} INFO - snowflake.connector.errors.ProgrammingError: 000904 (42000): SQL compilation error: error line 2 at position 11
+[2025-12-15T14:39:16.702+0000] {subprocess.py:93} INFO - invalid identifier 'LOAD_RUN_ID'
+[2025-12-15T14:39:16.951+0000] {subprocess.py:93} INFO - [ERROR] 2025-12-15 14:39:16 - [BATCHES] Also failed to write audit row: 000904 (42000): SQL compilation error: error line 2 at position 11
+[2025-12-15T14:39:16.952+0000] {subprocess.py:93} INFO - invalid identifier 'LOAD_RUN_ID'
+[2025-12-15T14:39:20.944+0000] {subprocess.py:93} INFO - [ERROR] 2025-12-15 14:39:20 - [PRODUCTION_ORDERS] Load failed: 000904 (42000): SQL compilation error: error line 2 at position 11
+[2025-12-15T14:39:20.944+0000] {subprocess.py:93} INFO - invalid identifier 'LOAD_RUN_ID'
+[2025-12-15T14:39:20.945+0000] {subprocess.py:93} INFO - Traceback (most recent call last):
+[2025-12-15T14:39:20.946+0000] {subprocess.py:93} INFO -   File "/opt/***/ingestion/python/load_raw_to_snowflake.py", line 272, in load_df
+[2025-12-15T14:39:20.946+0000] {subprocess.py:93} INFO -     _audit(cur, load_run_id, source_name, table_name, rows_read, int(rows_loaded), "SUCCESS", None)
+[2025-12-15T14:39:20.947+0000] {subprocess.py:93} INFO -   File "/opt/***/ingestion/python/load_raw_to_snowflake.py", line 220, in _audit
+[2025-12-15T14:39:20.947+0000] {subprocess.py:93} INFO -     cur.execute(
+[2025-12-15T14:39:20.948+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/snowflake/connector/cursor.py", line 1134, in execute
+[2025-12-15T14:39:20.948+0000] {subprocess.py:93} INFO -     Error.errorhandler_wrapper(self.connection, self, error_class, errvalue)
+[2025-12-15T14:39:20.949+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 286, in errorhandler_wrapper
+[2025-12-15T14:39:20.949+0000] {subprocess.py:93} INFO -     handed_over = Error.hand_to_other_handler(
+[2025-12-15T14:39:20.950+0000] {subprocess.py:93} INFO -                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-12-15T14:39:20.950+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 341, in hand_to_other_handler
+[2025-12-15T14:39:20.951+0000] {subprocess.py:93} INFO -     cursor.errorhandler(connection, cursor, error_class, error_value)
+[2025-12-15T14:39:20.951+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 217, in default_errorhandler
+[2025-12-15T14:39:20.952+0000] {subprocess.py:93} INFO -     raise error_class(
+[2025-12-15T14:39:20.952+0000] {subprocess.py:93} INFO - snowflake.connector.errors.ProgrammingError: 000904 (42000): SQL compilation error: error line 2 at position 11
+[2025-12-15T14:39:20.953+0000] {subprocess.py:93} INFO - invalid identifier 'LOAD_RUN_ID'
+[2025-12-15T14:39:21.178+0000] {subprocess.py:93} INFO - [ERROR] 2025-12-15 14:39:21 - [PRODUCTION_ORDERS] Also failed to write audit row: 000904 (42000): SQL compilation error: error line 2 at position 11
+[2025-12-15T14:39:21.179+0000] {subprocess.py:93} INFO - invalid identifier 'LOAD_RUN_ID'
+[2025-12-15T14:39:21.583+0000] {subprocess.py:93} INFO - [INFO] 2025-12-15 14:39:21 - Snowflake connection closed.
+[2025-12-15T14:39:21.737+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-12-15T14:39:21.738+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-12-15T14:39:21.747+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 460, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-12-15T14:39:21.752+0000] {taskinstance.py:1205} INFO - Marking task as UP_FOR_RETRY. dag_id=mfg_raw_ingestion_dag, task_id=ingest_raw_to_snowflake, execution_date=20251215T142806, start_date=20251215T143904, end_date=20251215T143921
+[2025-12-15T14:39:21.767+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 30 for task ingest_raw_to_snowflake (Bash command failed. The command returned a non-zero exit code 1.; 3695)
+[2025-12-15T14:39:21.797+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-12-15T14:39:21.820+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-15T14:39:21.824+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

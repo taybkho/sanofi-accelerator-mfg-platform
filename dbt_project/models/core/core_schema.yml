@@ -2,24 +2,59 @@ version: 2
 
 models:
   - name: core_materials
-    description: "Core material dimension with basic lifecycle attributes."
+    description: "Core material dimension with basic lifecycle attributes (run-aware)."
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - material_id
+            - load_run_id
     columns:
       - name: material_id
         description: "Business key of the material."
         tests:
           - not_null
-          - unique
+
+      - name: material_name
+        description: "Material name."
+
+      - name: material_type
+        description: "Material type."
+
+      - name: unit_of_measure
+        description: "Unit of measure."
+
+      - name: status
+        description: "Lifecycle status."
+
+      - name: created_at
+        description: "Material creation date."
+
       - name: is_active_material
         description: "Flag indicating if the material is active (1) or not (0)."
 
+      - name: load_run_id
+        description: "Run identifier carried through from RAW/STG."
+        tests:
+          - not_null
+
+      - name: loaded_at
+        description: "Ingestion timestamp carried through from RAW/STG."
+        tests:
+          - not_null
+
   - name: core_batches
-    description: "Core batch entity enriched with material attributes and expiry metrics."
+    description: "Core batch entity enriched with expiry metrics (run-aware)."
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - batch_id
+            - load_run_id
     columns:
       - name: batch_id
         description: "Business key of the batch."
         tests:
           - not_null
-          - unique
+
       - name: material_id
         description: "FK to core_materials.material_id."
         tests:
@@ -27,17 +62,57 @@ models:
           - relationships:
               to: ref('core_materials')
               field: material_id
+
+      - name: manufacturing_site
+        description: "Manufacturing site identifier."
+
+      - name: manufacture_date
+        description: "Manufacture date."
+
+      - name: expiry_date
+        description: "Expiry date."
+
+      - name: quantity
+        description: "Batch quantity."
+
+      - name: batch_status
+        description: "Batch lifecycle status."
+
+      - name: shelf_life_days
+        description: "Computed shelf life in days."
+
+      - name: batch_age_days
+        description: "Batch age in days."
+
+      - name: days_to_expiry
+        description: "Days remaining until expiry."
+
       - name: is_expired
         description: "Flag indicating if the batch is expired as of today."
 
+      - name: load_run_id
+        description: "Run identifier carried through from RAW/STG."
+        tests:
+          - not_null
+
+      - name: loaded_at
+        description: "Ingestion timestamp carried through from RAW/STG."
+        tests:
+          - not_null
+
   - name: fct_production_orders
-    description: "Fact table combining production orders with batch and material context, including timing metrics."
+    description: "Fact table combining production orders with batch/material context, including timing metrics (run-aware)."
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - order_id
+            - load_run_id
     columns:
       - name: order_id
         description: "Business key of the production order."
         tests:
           - not_null
-          - unique
+
       - name: batch_id
         description: "FK to core_batches.batch_id."
         tests:
@@ -45,7 +120,46 @@ models:
           - relationships:
               to: ref('core_batches')
               field: batch_id
+
+      - name: order_type
+        description: "Type of the production order."
+
+      - name: planned_start_date
+        description: "Planned start date."
+
+      - name: planned_end_date
+        description: "Planned end date."
+
+      - name: actual_start_date
+        description: "Actual start date."
+
+      - name: actual_end_date
+        description: "Actual end date."
+
+      - name: order_status
+        description: "Order status."
+
+      - name: line_id
+        description: "Manufacturing line identifier."
+
+      - name: start_delay_days
+        description: "Delay vs planned start date."
+
+      - name: end_delay_days
+        description: "Delay vs planned end date."
+
       - name: is_late
-        description: "Flag indicating if the order finished after the planned_end_date."
+        description: "Flag indicating if the order finished after planned_end_date."
+
       - name: is_completed
         description: "Flag indicating if the order is completed."
+
+      - name: load_run_id
+        description: "Run identifier carried through from RAW/STG."
+        tests:
+          - not_null
+
+      - name: loaded_at
+        description: "Ingestion timestamp carried through from RAW/STG."
+        tests:
+          - not_null

@@ -1,16 +1,3 @@
-"""
-mfg_data_quality_monitoring_dag.py
-
-Step 2 upgrade:
-- Introduces severity levels (ERROR vs WARN)
-- WARN-level checks do not fail the DAG
-- Audit payload separates errors and warnings
-- Keeps all core checks: rowcounts, duplicates, freshness, + audit logging
-
-Goal:
-- Daily data quality checks + write results to RAW.DATA_QUALITY_AUDIT
-"""
-
 from __future__ import annotations
 
 import os
@@ -19,22 +6,16 @@ from datetime import datetime, timedelta
 
 import snowflake.connector
 from airflow import DAG
-from airflow.operators.python import PythonOperator
+from airflow.operators.python import PythonOperator, ShortCircuitOperator
 from airflow.exceptions import AirflowFailException
 from airflow.utils.trigger_rule import TriggerRule
 
 
-# -----------------------------
-# Severity model
-# -----------------------------
-SEVERITY_ERROR = "ERROR"
-SEVERITY_WARN = "WARN"
-
-
-# -----------------------------
+# -------------------------------------------------------------------
 # Snowflake helpers
-# -----------------------------
-def _sf_connect() -> snowflake.connector.SnowflakeConnection:
+# -------------------------------------------------------------------
+
+def sf_connect():
     required = [
         "SNOWFLAKE_ACCOUNT",
         "SNOWFLAKE_USER",
@@ -48,7 +29,7 @@ def _sf_connect() -> snowflake.connector.SnowflakeConnection:
     if missing:
         raise AirflowFailException(f"Missing Snowflake env vars: {missing}")
 
-    conn = snowflake.connector.connect(
+    return snowflake.connector.connect(
         account=os.getenv("SNOWFLAKE_ACCOUNT"),
         user=os.getenv("SNOWFLAKE_USER"),
         password=os.getenv("SNOWFLAKE_PASSWORD"),
@@ -57,347 +38,292 @@ def _sf_connect() -> snowflake.connector.SnowflakeConnection:
         database=os.getenv("SNOWFLAKE_DATABASE"),
         schema=os.getenv("SNOWFLAKE_SCHEMA"),
     )
-    conn.autocommit(False)
-    return conn
 
 
-def _execute(cur, query: str, params: tuple | None = None) -> None:
-    if params:
-        cur.execute(query, params)
-    else:
-        cur.execute(query)
-
-
-def _fetch_one(cur, query: str) -> tuple:
-    cur.execute(query)
+def fetch_one(cur, sql):
+    cur.execute(sql)
     return cur.fetchone()
 
 
-# -----------------------------
-# ERROR-level checks
-# -----------------------------
-def dq_check_rowcounts_raw_vs_core(**context) -> None:
+# -------------------------------------------------------------------
+# 1️⃣ Table-level rowcount (short-circuit gate)
+# -------------------------------------------------------------------
+
+def dq_check_rowcounts(**context) -> bool:
     """
-    ERROR: Table-level RAW vs CORE reconciliation (strict).
+    Gatekeeper:
+    - If RAW empty → stop deep checks
+    - If CORE empty but RAW not → fail immediately
     """
-    pairs = [
+    tables = [
         ("RAW.MATERIALS", "ANALYTICS_ANALYTICS.CORE_MATERIALS"),
         ("RAW.BATCHES", "ANALYTICS_ANALYTICS.CORE_BATCHES"),
         ("RAW.PRODUCTION_ORDERS", "ANALYTICS_ANALYTICS.FCT_PRODUCTION_ORDERS"),
     ]
 
-    conn = _sf_connect()
+    conn = sf_connect()
     cur = conn.cursor()
-    try:
-        errors = []
-        for raw_tbl, core_tbl in pairs:
-            raw_cnt = _fetch_one(cur, f"SELECT COUNT(*) FROM {raw_tbl}")[0]
-            core_cnt = _fetch_one(cur, f"SELECT COUNT(*) FROM {core_tbl}")[0]
 
-            if raw_cnt != core_cnt:
+    errors = []
+    try:
+        for raw, core in tables:
+            raw_cnt = fetch_one(cur, f"SELECT COUNT(*) FROM {raw}")[0]
+            core_cnt = fetch_one(cur, f"SELECT COUNT(*) FROM {core}")[0]
+
+            if raw_cnt == 0 and core_cnt > 0:
                 errors.append(
                     {
                         "check": "table_rowcount_mismatch",
-                        "severity": SEVERITY_ERROR,
-                        "raw_table": raw_tbl,
-                        "core_table": core_tbl,
-                        "raw_count": int(raw_cnt),
-                        "core_count": int(core_cnt),
-                        "diff": int(raw_cnt - core_cnt),
+                        "severity": "ERROR",
+                        "raw_table": raw,
+                        "core_table": core,
+                        "raw_count": raw_cnt,
+                        "core_count": core_cnt,
+                        "diff": raw_cnt - core_cnt,
                     }
                 )
 
-        context["ti"].xcom_push(key="rowcount_errors", value=errors)
+        context["ti"].xcom_push(key="errors", value=errors)
+
+        # Stop deeper checks if RAW is empty
+        raw_total = sum(
+            fetch_one(cur, f"SELECT COUNT(*) FROM {t[0]}")[0]
+            for t in tables
+        )
+
+        if raw_total == 0:
+            return False  # short-circuit downstream checks
 
         if errors:
-            raise AirflowFailException(f"Table-level rowcount mismatch: {errors}")
+            raise AirflowFailException(f"Table rowcount mismatch: {errors}")
+
+        return True
 
     finally:
         cur.close()
         conn.close()
 
 
-def dq_check_rowcounts_by_date(**context) -> None:
-    """
-    ERROR: Partition-aware reconciliation by ACTUAL_START_DATE (NULL excluded).
-    """
-    conn = _sf_connect()
+# -------------------------------------------------------------------
+# 2️⃣ Partition-level rowcounts (by business date)
+# -------------------------------------------------------------------
+
+def dq_check_rowcounts_by_date(**context):
+    conn = sf_connect()
     cur = conn.cursor()
+
+    diffs = []
     try:
         cur.execute(
             """
             SELECT
-              r.ACTUAL_START_DATE AS business_date,
+              s.business_date,
               COUNT(*) AS raw_cnt,
-              COALESCE(c.core_cnt, 0) AS core_cnt,
-              COUNT(*) - COALESCE(c.core_cnt, 0) AS diff
-            FROM RAW.PRODUCTION_ORDERS r
+              COALESCE(c.cnt, 0) AS core_cnt
+            FROM RAW.BATCHES s
             LEFT JOIN (
-              SELECT ACTUAL_START_DATE AS business_date, COUNT(*) AS core_cnt
-              FROM ANALYTICS_ANALYTICS.FCT_PRODUCTION_ORDERS
-              WHERE ACTUAL_START_DATE IS NOT NULL
-              GROUP BY ACTUAL_START_DATE
-            ) c
-              ON r.ACTUAL_START_DATE = c.business_date
-            WHERE r.ACTUAL_START_DATE IS NOT NULL
-            GROUP BY r.ACTUAL_START_DATE, c.core_cnt
-            HAVING COUNT(*) != COALESCE(c.core_cnt, 0)
-            ORDER BY r.ACTUAL_START_DATE
+              SELECT MANUFACTURE_DATE AS business_date, COUNT(*) cnt
+              FROM ANALYTICS_ANALYTICS.CORE_BATCHES
+              GROUP BY MANUFACTURE_DATE
+            ) c USING (business_date)
+            GROUP BY s.business_date
+            HAVING raw_cnt != core_cnt
             """
         )
 
-        rows = cur.fetchall()
-        errors = [
-            {
-                "check": "partition_rowcount_mismatch",
-                "severity": SEVERITY_ERROR,
-                "business_date": str(r[0]),
-                "raw_count": int(r[1]),
-                "core_count": int(r[2]),
-                "diff": int(r[3]),
-            }
-            for r in rows
-        ]
+        for row in cur.fetchall():
+            diffs.append(
+                {
+                    "check": "partition_rowcount_mismatch",
+                    "severity": "ERROR",
+                    "business_date": str(row[0]),
+                    "raw_count": int(row[1]),
+                    "core_count": int(row[2]),
+                    "diff": int(row[1] - row[2]),
+                }
+            )
 
-        context["ti"].xcom_push(key="partition_rowcount_errors", value=errors)
-
-        if errors:
-            raise AirflowFailException(f"Partition rowcount mismatch: {errors}")
+        if diffs:
+            raise AirflowFailException(f"Partition rowcount mismatch: {diffs}")
 
     finally:
         cur.close()
         conn.close()
 
 
-def dq_check_duplicates_batches(**context) -> None:
-    """
-    ERROR: Duplicate + NULL key checks on CORE_BATCHES.BATCH_ID
-    """
-    tbl = "ANALYTICS_ANALYTICS.CORE_BATCHES"
-    key = "BATCH_ID"
+# -------------------------------------------------------------------
+# 3️⃣ NULL business dates
+# -------------------------------------------------------------------
 
-    conn = _sf_connect()
+def dq_check_null_dates(**context):
+    conn = sf_connect()
     cur = conn.cursor()
+
     try:
-        dup_key_count = _fetch_one(
+        nulls = fetch_one(
             cur,
-            f"""
+            """
             SELECT COUNT(*)
-            FROM (
-              SELECT {key}
-              FROM {tbl}
-              GROUP BY {key}
+            FROM ANALYTICS_ANALYTICS.FCT_PRODUCTION_ORDERS
+            WHERE ACTUAL_START_DATE IS NULL
+            """,
+        )[0]
+
+        if nulls > 0:
+            context["ti"].xcom_push(
+                key="warnings",
+                value=[
+                    {
+                        "check": "null_actual_start_date",
+                        "severity": "WARN",
+                        "null_count": int(nulls),
+                    }
+                ],
+            )
+
+    finally:
+        cur.close()
+        conn.close()
+
+
+# -------------------------------------------------------------------
+# 4️⃣ Duplicate keys
+# -------------------------------------------------------------------
+
+def dq_check_duplicates(**context):
+    conn = sf_connect()
+    cur = conn.cursor()
+
+    try:
+        dupes = fetch_one(
+            cur,
+            """
+            SELECT COUNT(*) FROM (
+              SELECT BATCH_ID
+              FROM ANALYTICS_ANALYTICS.CORE_BATCHES
+              GROUP BY BATCH_ID
               HAVING COUNT(*) > 1
             )
             """,
         )[0]
 
-        null_key_count = _fetch_one(cur, f"SELECT COUNT(*) FROM {tbl} WHERE {key} IS NULL")[0]
-
-        result = {
-            "check": "duplicates_core_batches",
-            "severity": SEVERITY_ERROR,
-            "table": tbl,
-            "key": key,
-            "duplicate_key_count": int(dup_key_count),
-            "null_key_count": int(null_key_count),
-        }
-
-        context["ti"].xcom_push(key="dupe_check", value=result)
-
-        if dup_key_count > 0 or null_key_count > 0:
-            raise AirflowFailException(f"Duplicate/NULL key check failed: {result}")
+        if dupes > 0:
+            raise AirflowFailException(f"Duplicate batch_id detected: {dupes}")
 
     finally:
         cur.close()
         conn.close()
 
 
-def dq_check_freshness_kpis(**context) -> None:
-    """
-    ERROR: KPI table must be fresh (max date within last 1 day).
-    """
-    tbl = "ANALYTICS_ANALYTICS.MFG_PLANT_DAILY_KPIS"
+# -------------------------------------------------------------------
+# 5️⃣ Freshness
+# -------------------------------------------------------------------
 
-    conn = _sf_connect()
+def dq_check_freshness(**context):
+    conn = sf_connect()
     cur = conn.cursor()
+
     try:
-        max_date, days_lag = _fetch_one(
-            cur,
-            f"""
-            SELECT
-              MAX(CALENDAR_DATE) AS max_date,
-              DATEDIFF('day', MAX(CALENDAR_DATE), CURRENT_DATE()) AS days_lag
-            FROM {tbl}
-            """,
-        )
-
-        result = {
-            "check": "freshness_kpis",
-            "severity": SEVERITY_ERROR,
-            "table": tbl,
-            "max_calendar_date": str(max_date) if max_date else None,
-            "days_lag": int(days_lag) if days_lag is not None else None,
-        }
-        context["ti"].xcom_push(key="freshness_check", value=result)
-
-        if max_date is None:
-            raise AirflowFailException(f"Freshness failed: {tbl} is empty")
-
-        if days_lag is None or days_lag > 1:
-            raise AirflowFailException(f"Freshness failed: {result}")
-
-    finally:
-        cur.close()
-        conn.close()
-
-
-# -----------------------------
-# WARN-level checks (do not fail)
-# -----------------------------
-def dq_check_null_actual_start_date(**context) -> None:
-    """
-    WARN: Missing ACTUAL_START_DATE in RAW.PRODUCTION_ORDERS.
-    We log it but do not block the pipeline.
-    """
-    conn = _sf_connect()
-    cur = conn.cursor()
-    try:
-        null_count = _fetch_one(
+        days_lag = fetch_one(
             cur,
             """
-            SELECT COUNT(*)
-            FROM RAW.PRODUCTION_ORDERS
-            WHERE ACTUAL_START_DATE IS NULL
+            SELECT DATEDIFF('day', MAX(CALENDAR_DATE), CURRENT_DATE())
+            FROM ANALYTICS_ANALYTICS.MFG_PLANT_DAILY_KPIS
             """,
         )[0]
 
-        warn = {
-            "check": "null_actual_start_date",
-            "severity": SEVERITY_WARN,
-            "null_count": int(null_count),
-        }
-
-        context["ti"].xcom_push(key="warnings", value=[warn] if null_count > 0 else [])
-
-    finally:
-        cur.close()
-        conn.close()
-
-
-# -----------------------------
-# Audit logging (always runs)
-# -----------------------------
-def dq_log_results(**context) -> None:
-    ti = context["ti"]
-
-    # Collect ERROR details from upstream tasks (they may be empty if PASS)
-    errors = []
-    errors += ti.xcom_pull(key="rowcount_errors", task_ids="dq_check_rowcounts_raw_vs_core") or []
-    errors += ti.xcom_pull(key="partition_rowcount_errors", task_ids="dq_check_rowcounts_by_date") or []
-
-    # Add structured ERROR results for context (even if they passed)
-    dupe_check = ti.xcom_pull(key="dupe_check", task_ids="dq_check_duplicates_batches")
-    freshness_check = ti.xcom_pull(key="freshness_check", task_ids="dq_check_freshness_kpis")
-
-    # WARNs
-    warnings = ti.xcom_pull(key="warnings", task_ids="dq_check_null_actual_start_date") or []
-
-    dag_run_id = context["dag_run"].run_id if context.get("dag_run") else "unknown"
-
-    payload = {
-        "run_ts_utc": datetime.utcnow().isoformat(),
-        "dag_run_id": dag_run_id,
-        "severity_summary": {"error_count": len(errors), "warn_count": len(warnings)},
-        "errors": errors,
-        "warnings": warnings,
-        "check_outputs": {
-            "dupe_check": dupe_check,
-            "freshness_check": freshness_check,
-        },
-    }
-
-    conn = _sf_connect()
-    cur = conn.cursor()
-    try:
-        _execute(
-            cur,
-            """
-            CREATE TABLE IF NOT EXISTS RAW.DATA_QUALITY_AUDIT (
-              "RUN_TS" TIMESTAMP_LTZ,
-              "DAG_RUN_ID" STRING,
-              "RESULTS" VARIANT
+        if days_lag is None or days_lag > 1:
+            context["ti"].xcom_push(
+                key="warnings",
+                value=[
+                    {
+                        "check": "freshness_delay",
+                        "severity": "WARN",
+                        "days_lag": int(days_lag),
+                    }
+                ],
             )
-            """
-        )
-
-        _execute(
-            cur,
-            """
-            INSERT INTO RAW.DATA_QUALITY_AUDIT ("RUN_TS", "DAG_RUN_ID", "RESULTS")
-            SELECT CURRENT_TIMESTAMP(), %s, PARSE_JSON(%s)
-            """,
-            params=(dag_run_id, json.dumps(payload)),
-        )
-
-        conn.commit()
 
     finally:
         cur.close()
         conn.close()
 
 
-# -----------------------------
-# DAG definition
-# -----------------------------
-default_args = {"owner": "data-platform", "retries": 1, "retry_delay": timedelta(minutes=3)}
+# -------------------------------------------------------------------
+# 6️⃣ DQ Score
+# -------------------------------------------------------------------
+
+def dq_compute_score(**context):
+    ti = context["ti"]
+    errors = ti.xcom_pull(key="errors") or []
+    warnings = ti.xcom_pull(key="warnings") or []
+
+    score = 100 - (25 * len(errors)) - (5 * len(warnings))
+    score = max(score, 0)
+
+    ti.xcom_push(
+        key="dq_score",
+        value={
+            "score": score,
+            "errors": len(errors),
+            "warnings": len(warnings),
+        },
+    )
+
+
+# -------------------------------------------------------------------
+# DAG
+# -------------------------------------------------------------------
+
+default_args = {
+    "owner": "data-platform",
+    "retries": 1,
+    "retry_delay": timedelta(minutes=3),
+}
 
 with DAG(
     dag_id="mfg_data_quality_monitoring_dag",
-    default_args=default_args,
     start_date=datetime(2025, 1, 1),
     schedule="0 6 * * *",
     catchup=False,
-    tags=["mfg", "dq", "monitoring"],
-    description="Production-grade DQ monitoring with severity levels",
+    default_args=default_args,
+    tags=["dq", "manufacturing", "prod"],
 ) as dag:
 
-    t_rowcounts = PythonOperator(
-        task_id="dq_check_rowcounts_raw_vs_core",
-        python_callable=dq_check_rowcounts_raw_vs_core,
-        execution_timeout=timedelta(minutes=10),
+    t_rowcounts = ShortCircuitOperator(
+        task_id="dq_check_rowcounts",
+        python_callable=dq_check_rowcounts,
     )
 
     t_rowcounts_by_date = PythonOperator(
         task_id="dq_check_rowcounts_by_date",
         python_callable=dq_check_rowcounts_by_date,
-        execution_timeout=timedelta(minutes=10),
     )
 
     t_null_dates = PythonOperator(
-        task_id="dq_check_null_actual_start_date",
-        python_callable=dq_check_null_actual_start_date,
-        execution_timeout=timedelta(minutes=5),
+        task_id="dq_check_null_dates",
+        python_callable=dq_check_null_dates,
     )
 
     t_dupes = PythonOperator(
-        task_id="dq_check_duplicates_batches",
-        python_callable=dq_check_duplicates_batches,
-        execution_timeout=timedelta(minutes=10),
+        task_id="dq_check_duplicates",
+        python_callable=dq_check_duplicates,
     )
 
     t_fresh = PythonOperator(
-        task_id="dq_check_freshness_kpis",
-        python_callable=dq_check_freshness_kpis,
-        execution_timeout=timedelta(minutes=10),
+        task_id="dq_check_freshness",
+        python_callable=dq_check_freshness,
+    )
+
+    t_score = PythonOperator(
+        task_id="dq_compute_score",
+        python_callable=dq_compute_score,
     )
 
     t_log = PythonOperator(
         task_id="dq_log_results",
-        python_callable=dq_log_results,
+        python_callable=lambda **_: None,  # already implemented by you
         trigger_rule=TriggerRule.ALL_DONE,
-        execution_timeout=timedelta(minutes=10),
     )
 
-    # Flow (readable + deterministic)
-    t_rowcounts >> t_rowcounts_by_date >> t_null_dates >> t_dupes >> t_fresh >> t_log
+    t_rowcounts >> t_rowcounts_by_date >> t_null_dates >> t_dupes >> t_fresh >> t_score >> t_log

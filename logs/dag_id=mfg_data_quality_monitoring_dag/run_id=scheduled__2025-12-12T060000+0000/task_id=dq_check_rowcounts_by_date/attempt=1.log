@@ -38,3 +38,23 @@ airflow.exceptions.AirflowFailException: Partition-level rowcount mismatch detec
 [2025-12-13T17:01:51.808+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
 [2025-12-13T17:01:51.827+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
 [2025-12-13T17:01:51.835+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-12-13T22:03:04.696+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-12-13T22:03:04.737+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: mfg_data_quality_monitoring_dag.dq_check_rowcounts_by_date scheduled__2025-12-12T06:00:00+00:00 [queued]>
+[2025-12-13T22:03:04.746+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: mfg_data_quality_monitoring_dag.dq_check_rowcounts_by_date scheduled__2025-12-12T06:00:00+00:00 [queued]>
+[2025-12-13T22:03:04.747+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 2
+[2025-12-13T22:03:04.763+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): dq_check_rowcounts_by_date> on 2025-12-12 06:00:00+00:00
+[2025-12-13T22:03:04.775+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'mfg_data_quality_monitoring_dag', 'dq_check_rowcounts_by_date', 'scheduled__2025-12-12T06:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/mfg_data_quality_monitoring_dag.py', '--cfg-path', '/tmp/tmpqgzo0lpy']
+[2025-12-13T22:03:04.778+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=316) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-12-13T22:03:04.779+0000] {standard_task_runner.py:91} INFO - Job 4: Subtask dq_check_rowcounts_by_date
+[2025-12-13T22:03:04.779+0000] {standard_task_runner.py:63} INFO - Started process 331 to run task
+[2025-12-13T22:03:04.838+0000] {task_command.py:426} INFO - Running <TaskInstance: mfg_data_quality_monitoring_dag.dq_check_rowcounts_by_date scheduled__2025-12-12T06:00:00+00:00 [running]> on host 54d82317add3
+[2025-12-13T22:03:04.945+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-platform' AIRFLOW_CTX_DAG_ID='mfg_data_quality_monitoring_dag' AIRFLOW_CTX_TASK_ID='dq_check_rowcounts_by_date' AIRFLOW_CTX_EXECUTION_DATE='2025-12-12T06:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-12-12T06:00:00+00:00'
+[2025-12-13T22:03:04.946+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-12-13T22:03:04.961+0000] {connection.py:521} INFO - Snowflake Connector for Python Version: 3.18.0, Python Version: 3.12.2, Platform: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.36
+[2025-12-13T22:03:04.963+0000] {connection.py:1464} INFO - Connecting to GLOBAL Snowflake domain
+[2025-12-13T22:03:07.749+0000] {python.py:237} INFO - Done. Returned value was: None
+[2025-12-13T22:03:07.751+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-12-13T22:03:07.759+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=mfg_data_quality_monitoring_dag, task_id=dq_check_rowcounts_by_date, execution_date=20251212T060000, start_date=20251213T220304, end_date=20251213T220307
+[2025-12-13T22:03:07.818+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-12-13T22:03:07.840+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-12-13T22:03:07.845+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

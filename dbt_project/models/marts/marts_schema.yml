@@ -3,21 +3,45 @@ version: 2
 models:
   - name: mfg_plant_daily_kpis
     description: "Daily plant-level KPIs combining batch and order information."
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - manufacturing_site
+            - calendar_date
     columns:
       - name: manufacturing_site
         description: "Identifier of the manufacturing site."
         tests:
           - not_null
+
       - name: calendar_date
         description: "Calendar date for which KPIs are calculated."
         tests:
           - not_null
+
       - name: total_batches
         description: "Total number of batches manufactured on that date at the site."
+
       - name: total_quantity
         description: "Total manufactured quantity on that date at the site."
+
+      - name: expired_batches
+        description: "Count of expired batches (as of run time)."
+
       - name: total_orders
         description: "Total number of orders with planned_start_date on that date at the site."
+
+      - name: completed_orders
+        description: "Number of completed orders on that date at the site."
+
+      - name: late_orders
+        description: "Number of late orders on that date at the site."
+
+      - name: avg_delay_vs_plan_days
+        description: "Average delay vs plan in days."
+
+      - name: on_time_rate
+        description: "On-time completion rate (0-1)."
 
   - name: mfg_ml_features_orders
     description: "ML-ready feature table at order grain to predict delays and lateness."
@@ -27,11 +51,17 @@ models:
         tests:
           - not_null
           - unique
+
       - name: is_late
         description: "Binary label for whether the order finished after planned_end_date."
+
       - name: delay_vs_plan_days
         description: "Numerical label for how many days late/early the order was."
+
       - name: manufacturing_site
         description: "Manufacturing site where the order's batch is produced."
+        tests:
+          - not_null
+
       - name: line_id
         description: "Manufacturing line identifier."

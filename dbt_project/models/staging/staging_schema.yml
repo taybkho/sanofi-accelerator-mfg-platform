@@ -2,45 +2,122 @@ version: 2
 
 models:
   - name: stg_materials
-    description: "Staging view of materials with cleaned types and naming."
+    description: "Staging view of RAW.MATERIALS (run-aware append-only). Basic type cleanup + standardization."
     columns:
       - name: material_id
         description: "Business key of the material."
         tests:
           - not_null
-          - unique
-      - name: material_status
-        description: "Lifecycle status of the material."
+
+      - name: material_name
+        description: "Material name."
+
+      - name: material_type
+        description: "Material type / category."
+
+      - name: unit_of_measure
+        description: "Unit of measure."
+
+      - name: status
+        description: "Lifecycle status of the material (e.g., ACTIVE/INACTIVE)."
+
+      - name: created_at
+        description: "Material creation date."
+
+      - name: load_run_id
+        description: "Run identifier stamped at ingestion time."
+        tests:
+          - not_null
+
+      - name: loaded_at
+        description: "Ingestion timestamp stamped at ingestion time."
+        tests:
+          - not_null
 
   - name: stg_batches
-    description: "Staging view of manufacturing batches."
+    description: "Staging view of RAW.BATCHES (run-aware append-only)."
     columns:
       - name: batch_id
         description: "Business key of the batch."
         tests:
           - not_null
-          - unique
+
       - name: material_id
-        description: "FK to stg_materials.material_id."
+        description: "FK to stg_materials.material_id"
         tests:
           - not_null
           - relationships:
               to: ref('stg_materials')
               field: material_id
 
+      - name: manufacturing_site
+        description: "Manufacturing site identifier."
+
+      - name: manufacture_date
+        description: "Manufacture date."
+
+      - name: expiry_date
+        description: "Expiry date."
+
+      - name: quantity
+        description: "Batch quantity."
+
+      - name: batch_status
+        description: "Batch lifecycle status."
+
+      - name: load_run_id
+        description: "Run identifier stamped at ingestion time."
+        tests:
+          - not_null
+
+      - name: loaded_at
+        description: "Ingestion timestamp stamped at ingestion time."
+        tests:
+          - not_null
+
   - name: stg_production_orders
-    description: "Staging view of production orders."
+    description: "Staging view of RAW.PRODUCTION_ORDERS (run-aware append-only)."
     columns:
       - name: order_id
         description: "Business key of the production order."
         tests:
           - not_null
-          - unique
+
       - name: batch_id
-        description: "FK to stg_batches.batch_id."
+        description: "FK to stg_batches.batch_id"
         tests:
           - not_null
           - relationships:
               to: ref('stg_batches')
               field: batch_id
 
+      - name: order_type
+        description: "Type of the production order."
+
+      - name: planned_start_date
+        description: "Planned start date."
+
+      - name: planned_end_date
+        description: "Planned end date."
+
+      - name: actual_start_date
+        description: "Actual start date (can be null if not started)."
+
+      - name: actual_end_date
+        description: "Actual end date (can be null if not completed)."
+
+      - name: order_status
+        description: "Order status."
+
+      - name: line_id
+        description: "Manufacturing line identifier."
+
+      - name: load_run_id
+        description: "Run identifier stamped at ingestion time."
+        tests:
+          - not_null
+
+      - name: loaded_at
+        description: "Ingestion timestamp stamped at ingestion time."
+        tests:
+          - not_null

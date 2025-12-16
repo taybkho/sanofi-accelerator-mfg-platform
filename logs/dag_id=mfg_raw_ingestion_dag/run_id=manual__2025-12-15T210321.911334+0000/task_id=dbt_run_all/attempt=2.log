@@ -1,0 +1,80 @@
+[2025-12-15T22:50:25.333+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-12-15T22:50:25.552+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: mfg_raw_ingestion_dag.dbt_run_all manual__2025-12-15T21:03:21.911334+00:00 [queued]>
+[2025-12-15T22:50:25.614+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: mfg_raw_ingestion_dag.dbt_run_all manual__2025-12-15T21:03:21.911334+00:00 [queued]>
+[2025-12-15T22:50:25.620+0000] {taskinstance.py:2303} INFO - Starting attempt 2 of 3
+[2025-12-15T22:50:25.700+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): dbt_run_all> on 2025-12-15 21:03:21.911334+00:00
+[2025-12-15T22:50:25.736+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'mfg_raw_ingestion_dag', 'dbt_run_all', 'manual__2025-12-15T21:03:21.911334+00:00', '--job-id', '8', '--raw', '--subdir', 'DAGS_FOLDER/mfg_raw_ingestion_dag.py', '--cfg-path', '/tmp/tmpjhqkleyi']
+[2025-12-15T22:50:25.783+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=1188) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-12-15T22:50:25.799+0000] {standard_task_runner.py:91} INFO - Job 8: Subtask dbt_run_all
+[2025-12-15T22:50:25.802+0000] {standard_task_runner.py:63} INFO - Started process 1195 to run task
+[2025-12-15T22:50:26.122+0000] {task_command.py:426} INFO - Running <TaskInstance: mfg_raw_ingestion_dag.dbt_run_all manual__2025-12-15T21:03:21.911334+00:00 [running]> on host 36071aea49b2
+[2025-12-15T22:50:26.589+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-engineering' AIRFLOW_CTX_DAG_ID='mfg_raw_ingestion_dag' AIRFLOW_CTX_TASK_ID='dbt_run_all' AIRFLOW_CTX_EXECUTION_DATE='2025-12-15T21:03:21.911334+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-12-15T21:03:21.911334+00:00'
+[2025-12-15T22:50:26.595+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-12-15T22:50:26.707+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-12-15T22:50:26.716+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'set -euo pipefail; cd /opt/***/dbt_project && dbt run --profiles-dir /opt/***/dbt_profiles']
+[2025-12-15T22:50:26.754+0000] {subprocess.py:86} INFO - Output:
+[2025-12-15T22:50:41.920+0000] {subprocess.py:93} INFO - [0m22:50:41  Running with dbt=1.10.15
+[2025-12-15T22:50:43.791+0000] {subprocess.py:93} INFO - [0m22:50:43  Registered adapter: snowflake=1.10.4
+[2025-12-15T22:50:44.662+0000] {subprocess.py:93} INFO - [0m22:50:44  Found 8 models, 29 data tests, 3 sources, 504 macros
+[2025-12-15T22:50:44.669+0000] {subprocess.py:93} INFO - [0m22:50:44
+[2025-12-15T22:50:44.671+0000] {subprocess.py:93} INFO - [0m22:50:44  Concurrency: 4 threads (target='dev')
+[2025-12-15T22:50:44.672+0000] {subprocess.py:93} INFO - [0m22:50:44
+[2025-12-15T22:50:47.889+0000] {subprocess.py:93} INFO - [0m22:50:47  1 of 8 START sql view model ANALYTICS_analytics.stg_batches .................... [RUN]
+[2025-12-15T22:50:47.891+0000] {subprocess.py:93} INFO - [0m22:50:47  2 of 8 START sql view model ANALYTICS_analytics.stg_materials .................. [RUN]
+[2025-12-15T22:50:47.893+0000] {subprocess.py:93} INFO - [0m22:50:47  3 of 8 START sql view model ANALYTICS_analytics.stg_production_orders .......... [RUN]
+[2025-12-15T22:50:48.689+0000] {subprocess.py:93} INFO - [0m22:50:48  1 of 8 OK created sql view model ANALYTICS_analytics.stg_batches ............... [[32mSUCCESS 1[0m in 0.79s]
+[2025-12-15T22:50:48.694+0000] {subprocess.py:93} INFO - [0m22:50:48  4 of 8 START sql table model ANALYTICS_analytics.core_batches .................. [RUN]
+[2025-12-15T22:50:49.425+0000] {subprocess.py:93} INFO - [0m22:50:49  2 of 8 OK created sql view model ANALYTICS_analytics.stg_materials ............. [[32mSUCCESS 1[0m in 1.52s]
+[2025-12-15T22:50:49.461+0000] {subprocess.py:93} INFO - [0m22:50:49  5 of 8 START sql table model ANALYTICS_analytics.core_materials ................ [RUN]
+[2025-12-15T22:50:49.711+0000] {subprocess.py:93} INFO - [0m22:50:49  3 of 8 OK created sql view model ANALYTICS_analytics.stg_production_orders ..... [[32mSUCCESS 1[0m in 1.81s]
+[2025-12-15T22:50:49.725+0000] {subprocess.py:93} INFO - [0m22:50:49  6 of 8 START sql table model ANALYTICS_analytics.fct_production_orders ......... [RUN]
+[2025-12-15T22:50:51.364+0000] {subprocess.py:93} INFO - [0m22:50:51  5 of 8 OK created sql table model ANALYTICS_analytics.core_materials ........... [[32mSUCCESS 1[0m in 1.89s]
+[2025-12-15T22:50:51.746+0000] {subprocess.py:93} INFO - [0m22:50:51  4 of 8 OK created sql table model ANALYTICS_analytics.core_batches ............. [[32mSUCCESS 1[0m in 3.05s]
+[2025-12-15T22:50:51.840+0000] {subprocess.py:93} INFO - [0m22:50:51  6 of 8 OK created sql table model ANALYTICS_analytics.fct_production_orders .... [[32mSUCCESS 1[0m in 2.11s]
+[2025-12-15T22:50:51.846+0000] {subprocess.py:93} INFO - [0m22:50:51  7 of 8 START sql table model ANALYTICS_analytics.mfg_ml_features_orders ........ [RUN]
+[2025-12-15T22:50:51.848+0000] {subprocess.py:93} INFO - [0m22:50:51  8 of 8 START sql table model ANALYTICS_analytics.mfg_plant_daily_kpis .......... [RUN]
+[2025-12-15T22:50:52.210+0000] {subprocess.py:93} INFO - [0m22:50:52  7 of 8 ERROR creating sql table model ANALYTICS_analytics.mfg_ml_features_orders  [[31mERROR[0m in 0.36s]
+[2025-12-15T22:50:52.272+0000] {subprocess.py:93} INFO - [0m22:50:52  8 of 8 ERROR creating sql table model ANALYTICS_analytics.mfg_plant_daily_kpis . [[31mERROR[0m in 0.42s]
+[2025-12-15T22:50:54.117+0000] {subprocess.py:93} INFO - [0m22:50:54
+[2025-12-15T22:50:54.118+0000] {subprocess.py:93} INFO - [0m22:50:54  Finished running 5 table models, 3 view models in 0 hours 0 minutes and 9.44 seconds (9.44s).
+[2025-12-15T22:50:54.234+0000] {subprocess.py:93} INFO - [0m22:50:54
+[2025-12-15T22:50:54.238+0000] {subprocess.py:93} INFO - [0m22:50:54  [31mCompleted with 2 errors, 0 partial successes, and 0 warnings:[0m
+[2025-12-15T22:50:54.241+0000] {subprocess.py:93} INFO - [0m22:50:54
+[2025-12-15T22:50:54.244+0000] {subprocess.py:93} INFO - [0m22:50:54  [31mFailure in model mfg_ml_features_orders (models/marts/mfg_ml_features_orders.sql)[0m
+[2025-12-15T22:50:54.248+0000] {subprocess.py:93} INFO - [0m22:50:54    Database Error in model mfg_ml_features_orders (models/marts/mfg_ml_features_orders.sql)
+[2025-12-15T22:50:54.252+0000] {subprocess.py:93} INFO -   000904 (42000): SQL compilation error: error line 13 at position 8
+[2025-12-15T22:50:54.259+0000] {subprocess.py:93} INFO -   invalid identifier 'MATERIAL_ID'
+[2025-12-15T22:50:54.261+0000] {subprocess.py:93} INFO -   compiled code at target/run/mfg_accelerator/models/marts/mfg_ml_features_orders.sql
+[2025-12-15T22:50:54.266+0000] {subprocess.py:93} INFO - [0m22:50:54
+[2025-12-15T22:50:54.271+0000] {subprocess.py:93} INFO - [0m22:50:54    compiled code at target/compiled/mfg_accelerator/models/marts/mfg_ml_features_orders.sql
+[2025-12-15T22:50:54.276+0000] {subprocess.py:93} INFO - [0m22:50:54
+[2025-12-15T22:50:54.282+0000] {subprocess.py:93} INFO - [0m22:50:54  [31mFailure in model mfg_plant_daily_kpis (models/marts/mfg_plant_daily_kpis.sql)[0m
+[2025-12-15T22:50:54.289+0000] {subprocess.py:93} INFO - [0m22:50:54    Database Error in model mfg_plant_daily_kpis (models/marts/mfg_plant_daily_kpis.sql)
+[2025-12-15T22:50:54.291+0000] {subprocess.py:93} INFO -   000904 (42000): SQL compilation error: error line 88 at position 39
+[2025-12-15T22:50:54.292+0000] {subprocess.py:93} INFO -   invalid identifier 'O.MANUFACTURING_SITE'
+[2025-12-15T22:50:54.293+0000] {subprocess.py:93} INFO -   compiled code at target/run/mfg_accelerator/models/marts/mfg_plant_daily_kpis.sql
+[2025-12-15T22:50:54.301+0000] {subprocess.py:93} INFO - [0m22:50:54
+[2025-12-15T22:50:54.312+0000] {subprocess.py:93} INFO - [0m22:50:54    compiled code at target/compiled/mfg_accelerator/models/marts/mfg_plant_daily_kpis.sql
+[2025-12-15T22:50:54.316+0000] {subprocess.py:93} INFO - [0m22:50:54
+[2025-12-15T22:50:54.321+0000] {subprocess.py:93} INFO - [0m22:50:54  Done. PASS=6 WARN=0 ERROR=2 SKIP=0 NO-OP=0 TOTAL=8
+[2025-12-15T22:50:55.622+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-12-15T22:50:55.623+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-12-15T22:50:55.632+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 460, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 243, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-12-15T22:50:55.636+0000] {taskinstance.py:1205} INFO - Marking task as UP_FOR_RETRY. dag_id=mfg_raw_ingestion_dag, task_id=dbt_run_all, execution_date=20251215T210321, start_date=20251215T225025, end_date=20251215T225055
+[2025-12-15T22:50:55.651+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 8 for task dbt_run_all (Bash command failed. The command returned a non-zero exit code 1.; 1195)
+[2025-12-15T22:50:55.667+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-12-15T22:50:55.691+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-15T22:50:55.695+0000] {local_task_job_runner.py:222} INFO - ::endgroup::

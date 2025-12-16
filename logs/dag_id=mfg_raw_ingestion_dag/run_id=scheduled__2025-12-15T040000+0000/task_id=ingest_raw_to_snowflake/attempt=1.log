@@ -1,0 +1,39 @@
+[2025-12-16T14:22:09.109+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-12-16T14:22:09.222+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: mfg_raw_ingestion_dag.ingest_raw_to_snowflake scheduled__2025-12-15T04:00:00+00:00 [queued]>
+[2025-12-16T14:22:09.247+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: mfg_raw_ingestion_dag.ingest_raw_to_snowflake scheduled__2025-12-15T04:00:00+00:00 [queued]>
+[2025-12-16T14:22:09.249+0000] {taskinstance.py:2303} INFO - Starting attempt 1 of 3
+[2025-12-16T14:22:09.299+0000] {taskinstance.py:2327} INFO - Executing <Task(BashOperator): ingest_raw_to_snowflake> on 2025-12-15 04:00:00+00:00
+[2025-12-16T14:22:09.325+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'mfg_raw_ingestion_dag', 'ingest_raw_to_snowflake', 'scheduled__2025-12-15T04:00:00+00:00', '--job-id', '16', '--raw', '--subdir', 'DAGS_FOLDER/mfg_raw_ingestion_dag.py', '--cfg-path', '/tmp/tmphrkdhdlm']
+[2025-12-16T14:22:09.339+0000] {standard_task_runner.py:91} INFO - Job 16: Subtask ingest_raw_to_snowflake
+[2025-12-16T14:22:09.341+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=1903) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-12-16T14:22:09.343+0000] {standard_task_runner.py:63} INFO - Started process 1907 to run task
+[2025-12-16T14:22:09.491+0000] {task_command.py:426} INFO - Running <TaskInstance: mfg_raw_ingestion_dag.ingest_raw_to_snowflake scheduled__2025-12-15T04:00:00+00:00 [running]> on host 24030efa02e6
+[2025-12-16T14:22:09.653+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-engineering' AIRFLOW_CTX_DAG_ID='mfg_raw_ingestion_dag' AIRFLOW_CTX_TASK_ID='ingest_raw_to_snowflake' AIRFLOW_CTX_EXECUTION_DATE='2025-12-15T04:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-12-15T04:00:00+00:00'
+[2025-12-16T14:22:09.655+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-12-16T14:22:09.686+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-12-16T14:22:09.689+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'set -euo pipefail; python /opt/***/ingestion/python/load_raw_to_snowflake.py']
+[2025-12-16T14:22:09.705+0000] {subprocess.py:86} INFO - Output:
+[2025-12-16T14:22:12.624+0000] {subprocess.py:93} INFO - [INFO] 2025-12-16 14:22:12 - Loaded environment variables from /opt/***/.env
+[2025-12-16T14:22:12.635+0000] {subprocess.py:93} INFO - [INFO] 2025-12-16 14:22:12 - Starting RAW load. load_id=e294235f-4a29-4c68-b174-c68ef0e5689d
+[2025-12-16T14:22:12.636+0000] {subprocess.py:93} INFO - [INFO] 2025-12-16 14:22:12 - Using data directory: /opt/***/data/raw/source_system
+[2025-12-16T14:22:12.637+0000] {subprocess.py:93} INFO - [INFO] 2025-12-16 14:22:12 - Connecting to Snowflake...
+[2025-12-16T14:22:14.699+0000] {subprocess.py:93} INFO - [INFO] 2025-12-16 14:22:14 - Ensuring RAW tables exist...
+[2025-12-16T14:22:15.709+0000] {subprocess.py:93} INFO - [INFO] 2025-12-16 14:22:15 - Ensuring run-aware columns exist (LOAD_RUN_ID, LOADED_AT)...
+[2025-12-16T14:22:17.329+0000] {subprocess.py:93} INFO - [INFO] 2025-12-16 14:22:17 - RAW tables are ready (run-aware).
+[2025-12-16T14:22:17.330+0000] {subprocess.py:93} INFO - [INFO] 2025-12-16 14:22:17 - Ensuring RAW_LOAD_AUDIT table exists...
+[2025-12-16T14:22:17.697+0000] {subprocess.py:93} INFO - [INFO] 2025-12-16 14:22:17 - RAW_LOAD_AUDIT is ready.
+[2025-12-16T14:22:17.716+0000] {subprocess.py:93} INFO - [INFO] 2025-12-16 14:22:17 - Read 500 rows from materials.csv
+[2025-12-16T14:22:17.751+0000] {subprocess.py:93} INFO - [INFO] 2025-12-16 14:22:17 - Read 10,000 rows from batches.csv
+[2025-12-16T14:22:17.790+0000] {subprocess.py:93} INFO - [INFO] 2025-12-16 14:22:17 - Read 10,000 rows from production_orders.csv
+[2025-12-16T14:22:24.931+0000] {subprocess.py:93} INFO - [INFO] 2025-12-16 14:22:24 - [MATERIALS] Loaded 500 rows. load_id=e294235f-4a29-4c68-b174-c68ef0e5689d
+[2025-12-16T14:22:29.637+0000] {subprocess.py:93} INFO - [INFO] 2025-12-16 14:22:29 - [BATCHES] Loaded 10,000 rows. load_id=e294235f-4a29-4c68-b174-c68ef0e5689d
+[2025-12-16T14:22:33.849+0000] {subprocess.py:93} INFO - [INFO] 2025-12-16 14:22:33 - [PRODUCTION_ORDERS] Loaded 10,000 rows. load_id=e294235f-4a29-4c68-b174-c68ef0e5689d
+[2025-12-16T14:22:33.850+0000] {subprocess.py:93} INFO - [INFO] 2025-12-16 14:22:33 - RAW ingestion completed successfully.
+[2025-12-16T14:22:33.851+0000] {subprocess.py:93} INFO - [INFO] 2025-12-16 14:22:33 - load_id=e294235f-4a29-4c68-b174-c68ef0e5689d
+[2025-12-16T14:22:34.318+0000] {subprocess.py:93} INFO - [INFO] 2025-12-16 14:22:34 - Snowflake connection closed.
+[2025-12-16T14:22:34.463+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-12-16T14:22:34.464+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-12-16T14:22:34.489+0000] {taskinstance.py:1205} INFO - Marking task as SUCCESS. dag_id=mfg_raw_ingestion_dag, task_id=ingest_raw_to_snowflake, execution_date=20251215T040000, start_date=20251216T142209, end_date=20251216T142234
+[2025-12-16T14:22:34.526+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-12-16T14:22:34.551+0000] {taskinstance.py:3482} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-12-16T14:22:34.556+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
