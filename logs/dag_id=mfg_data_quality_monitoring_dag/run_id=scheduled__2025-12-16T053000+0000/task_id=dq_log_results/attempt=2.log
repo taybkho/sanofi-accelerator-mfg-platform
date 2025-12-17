@@ -128,3 +128,59 @@ ImportError: unusual_prefix_ac3778cd2311aa0fdf4029b8aedfef7b89091164_mfg_data_qu
 [2025-12-17T13:50:09.404+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
 [2025-12-17T13:50:09.427+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
 [2025-12-17T13:50:09.431+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2025-12-17T18:30:42.025+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-12-17T18:30:42.073+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: mfg_data_quality_monitoring_dag.dq_log_results scheduled__2025-12-16T05:30:00+00:00 [queued]>
+[2025-12-17T18:30:42.089+0000] {taskinstance.py:2073} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: mfg_data_quality_monitoring_dag.dq_log_results scheduled__2025-12-16T05:30:00+00:00 [queued]>
+[2025-12-17T18:30:42.089+0000] {taskinstance.py:2303} INFO - Starting attempt 2 of 2
+[2025-12-17T18:30:42.112+0000] {taskinstance.py:2327} INFO - Executing <Task(PythonOperator): dq_log_results> on 2025-12-16 05:30:00+00:00
+[2025-12-17T18:30:42.124+0000] {logging_mixin.py:188} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:61 DeprecationWarning: This process (pid=2574) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-12-17T18:30:42.126+0000] {standard_task_runner.py:63} INFO - Started process 2579 to run task
+[2025-12-17T18:30:42.123+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'mfg_data_quality_monitoring_dag', 'dq_log_results', 'scheduled__2025-12-16T05:30:00+00:00', '--job-id', '52', '--raw', '--subdir', 'DAGS_FOLDER/mfg_data_quality_monitoring_dag.py', '--cfg-path', '/tmp/tmpxkn0fu5u']
+[2025-12-17T18:30:42.127+0000] {standard_task_runner.py:91} INFO - Job 52: Subtask dq_log_results
+[2025-12-17T18:30:42.226+0000] {task_command.py:426} INFO - Running <TaskInstance: mfg_data_quality_monitoring_dag.dq_log_results scheduled__2025-12-16T05:30:00+00:00 [running]> on host 8717822a88d5
+[2025-12-17T18:30:42.371+0000] {taskinstance.py:2644} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-eng' AIRFLOW_CTX_DAG_ID='mfg_data_quality_monitoring_dag' AIRFLOW_CTX_TASK_ID='dq_log_results' AIRFLOW_CTX_EXECUTION_DATE='2025-12-16T05:30:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-12-16T05:30:00+00:00'
+[2025-12-17T18:30:42.374+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-12-17T18:30:42.461+0000] {connection.py:414} INFO - Snowflake Connector for Python Version: 3.12.0, Python Version: 3.12.2, Platform: Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.36
+[2025-12-17T18:30:42.464+0000] {connection.py:1187} INFO - Connecting to GLOBAL Snowflake domain
+[2025-12-17T18:30:42.465+0000] {connection.py:1268} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2025-12-17T18:30:44.601+0000] {cursor.py:1156} INFO - Number of results in first chunk: 1
+[2025-12-17T18:30:44.974+0000] {cursor.py:1156} INFO - Number of results in first chunk: 1
+[2025-12-17T18:30:45.306+0000] {connection.py:779} INFO - closed
+[2025-12-17T18:30:45.537+0000] {connection.py:785} INFO - No async queries seem to be running, deleting session
+[2025-12-17T18:30:45.790+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-12-17T18:30:45.792+0000] {taskinstance.py:2890} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 460, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 400, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/mfg_data_quality_monitoring_dag.py", line 253, in dq_log_results
+    cur.execute(
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/cursor.py", line 1087, in execute
+    Error.errorhandler_wrapper(self.connection, self, error_class, errvalue)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 290, in errorhandler_wrapper
+    handed_over = Error.hand_to_other_handler(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 345, in hand_to_other_handler
+    cursor.errorhandler(connection, cursor, error_class, error_value)
+  File "/home/airflow/.local/lib/python3.12/site-packages/snowflake/connector/errors.py", line 221, in default_errorhandler
+    raise error_class(
+snowflake.connector.errors.ProgrammingError: 000904 (42000): 01c11db6-0107-4da8-0013-40ff0017518e: SQL compilation error: error line 2 at position 29
+invalid identifier 'SEVERITY'
+[2025-12-17T18:30:45.807+0000] {taskinstance.py:1205} INFO - Marking task as FAILED. dag_id=mfg_data_quality_monitoring_dag, task_id=dq_log_results, execution_date=20251216T053000, start_date=20251217T183042, end_date=20251217T183045
+[2025-12-17T18:30:45.825+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 52 for task dq_log_results (000904 (42000): 01c11db6-0107-4da8-0013-40ff0017518e: SQL compilation error: error line 2 at position 29
+invalid identifier 'SEVERITY'; 2579)
+[2025-12-17T18:30:45.839+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 1
+[2025-12-17T18:30:45.862+0000] {taskinstance.py:3482} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-17T18:30:45.868+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
