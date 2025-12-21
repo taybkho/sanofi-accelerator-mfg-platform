@@ -7,7 +7,7 @@ These tests run after calling generate_mock_data.py and make sure:
 - Required columns are present
 """
 
-import os
+
 from pathlib import Path
 
 import pandas as pd
